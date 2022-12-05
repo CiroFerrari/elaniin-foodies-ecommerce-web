@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'Druk-Text-Wide': ['Druk Text Wide Trial'],
+      'Syne': ['Syne'],
+    }
   },
   plugins: [],
 };
