@@ -41,7 +41,7 @@ export default function BranchesContainer() {
           <BranchesButton name="Para llevar" image={TakeAwayImg} />
           <BranchesButton name="Domicilio" image={DeliveryImg} />
         </div>
-        <div className="border-[1px] border-[#C4C4C4] border-solid p-[17px] flex gap-[30px] pl-[7vw] mb-[15px]">
+        <div className="border-[1px] border-[#C4C4C4] border-solid p-[12px] flex gap-[30px] pl-[7vw] mb-[15px]">
           <img src={SearchInput} alt="Search" />
           <input type="text" className="flex-1 px-[10px] font-Open-Sans font-normal text-[18px] leading-[24.5px]" placeholder="Buscar nombre o dirección" />
         </div>
