@@ -5,15 +5,13 @@ import NavBar from './NavBar';
 
 const heroBackground = {
   backgroundImage: `url(${background})`,
-  minHeight: '00px',
   backgroundRepeat: 'no-repeat',
-  width: '100%',
   backgroundPositionX: 'right',
 };
 
 export default function HeroContainer() {
   return (
-    <div className="pt-[57px] pl-[101px] pr-[94px] pb-[185px]" style={heroBackground}>
+    <div className="pt-[57px] pl-[101px] pr-[94px] pb-[185px] w-[100%] min-h[0px]" style={heroBackground}>
       <NavBar />
       <Header />
     </div>
