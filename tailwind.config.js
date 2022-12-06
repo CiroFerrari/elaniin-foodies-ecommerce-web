@@ -9,6 +9,7 @@ module.exports = {
       'Druk-Text-Wide': ['Druk Text Wide Trial'],
       'Syne': ['Syne'],
       'Open-Sans': ['Open Sans'],
+      'Roboto': ['Roboto'],
     }
   },
   plugins: [],
