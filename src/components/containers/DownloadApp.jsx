@@ -48,6 +48,7 @@ export default function DownloadApp() {
           <img src={PlayStoreImg} alt="Play Store" className="max-w-[184px] max-h-[54px]" />
         </div>
       </div>
+      <hr className="mx-[4vw] mt-[29px] border-b-[1px] border-b-solid border-b-[#FFC700]" />
     </>
   );
 }
