@@ -3,7 +3,7 @@ import HeroAboutImg from '../../images/homeAbout/home-about.png';
 import HeroAboutBackground from '../../images/homeAbout/home-about-background.png';
 import CtaButton from '../base/CtaButton';
 
-export default function HeroAbout() {
+export default function HomeAbout() {
   return (
     <section className="mt-[80px] flex">
       <div style={{ backgroundImage: `url(${HeroAboutImg})`, backgroundSize: 'cover' }} className="h-[565px] w-[55vw] flex justify-end items-end pr-[40px] pb-[61px]">
