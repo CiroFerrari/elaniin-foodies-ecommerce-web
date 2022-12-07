@@ -1,21 +1,17 @@
 import React from 'react';
-import BranchesContainer from './components/containers/BranchesContainer';
-import DownloadApp from './components/containers/DownloadApp';
+import { Route, Routes } from 'react-router-dom';
 import Footer from './components/containers/Footer';
-import HeroContainer from './components/containers/HeroContainer';
-import HomeAbout from './components/containers/HomeAbout';
-import HomeContact from './components/containers/HomeContact';
-import Testimonials from './components/containers/Testimonials';
+import Home from './components/pages/Home';
+import Menu from './components/pages/Menu';
 
 export default function App() {
   return (
     <>
-      <HeroContainer />
-      <HomeAbout />
-      <BranchesContainer />
-      <Testimonials />
-      <HomeContact />
-      <DownloadApp />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/*" element={<div className="grow"><h1 className="text-3xl mt-12">Sitio no encontrado.</h1></div>} />
+      </Routes>
       <Footer />
     </>
   );
