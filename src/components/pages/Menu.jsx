@@ -1,7 +1,8 @@
 import React from 'react';
+import HeroContainer from '../containers/HeroContainer';
 
 export default function Menu() {
   return (
-    <h1>Menu page</h1>
+    <HeroContainer page="menu" />
   );
 }

@@ -23,7 +23,7 @@ export default function ContactInput(props) {
 ContactInput.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  handle: PropTypes.string.isRequired,
+  handle: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };

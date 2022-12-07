@@ -9,7 +9,7 @@ import Testimonials from '../containers/Testimonials';
 export default function Home() {
   return (
     <>
-      <HeroContainer />
+      <HeroContainer page="home" />
       <HomeAbout />
       <BranchesContainer />
       <Testimonials />
