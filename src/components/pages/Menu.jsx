@@ -1,8 +1,12 @@
 import React from 'react';
-import HeroContainer from '../containers/HeroContainer';
+import MenuHeader from '../containers/MenuHeader';
+import MenuListContainer from '../containers/MenuListContainer';
 
 export default function Menu() {
   return (
-    <HeroContainer page="menu" />
+    <>
+      <MenuHeader />
+      <MenuListContainer />
+    </>
   );
 }
