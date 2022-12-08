@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import homeBackground from '../../images/heroImages/hero-background.png';
 import menuBackground from '../../images/menuHero/menuHeroBackground.png';
-import Header from './Header';
-import NavBar from './NavBar';
+import HomeHeader from './HomeHeader';
 import MenuHeader from './MenuHeader';
 
 const homeHeroBackground = {
@@ -24,9 +23,8 @@ export default function HeroContainer({ page }) {
   const backgroundHero = page === 'home' ? homeHeroBackground : menuHeroBackground;
   return (
     <div className="pt-[57px] pl-[101px] pr-[94px] w-[100%] min-h[0px]" style={backgroundHero}>
-      <NavBar page={page} />
       {
-        page === 'home' ? <Header /> : <MenuHeader />
+        page === 'home' ? <HomeHeader /> : <MenuHeader />
       }
     </div>
   );

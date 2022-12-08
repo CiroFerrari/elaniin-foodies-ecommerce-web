@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import ContactInput from '../base/ContactInput';
+
+const options = {
+  method: 'POST',
+  url: 'https://api.foodies.elaniin.dev/forms/contact/submissions',
+  headers: { 'Content-Type': 'application/json' },
+  data: {
+    name: 'John Doe',
+    email: 'john@doe.com',
+    message: 'Hey there! I wanted to invite you to our trainee program! Let\'s have a call!',
+  },
+};
 
 export default function HomeContact() {
   const [email, setEmail] = useState('');
@@ -20,8 +32,19 @@ export default function HomeContact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    alert(email + name);
+    options.data = {
+      name,
+      email,
+      message,
+    };
+    axios.request(options).then((response) => {
+      alert(response.data.message);
+      setName('');
+      setEmail('');
+      setMessage('');
+    }).catch((error) => {
+      console.error(error);
+    });
   };
   return (
     <section className="bg-black py-[112px] z-0 mt-[-60px] flex flex-col justify-center items-center">

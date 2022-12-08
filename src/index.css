@@ -11,3 +11,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    background-color: #f8f8f8;
+}
+
+input#search:focus-visible {
+    border: none;
+    outline: none;
+}

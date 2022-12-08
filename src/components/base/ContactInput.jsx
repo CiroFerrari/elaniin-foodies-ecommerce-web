@@ -14,7 +14,7 @@ export default function ContactInput(props) {
         value={value}
         onChange={handle}
         placeholder={placeholder}
-        className="border-[1px] border-solid border-white bg-transparent py-[13px] pl-[20px] font-Open-Sans font-normal text-[16px] leading-[22px] mt-[5px]"
+        className="border-[1px] border-solid border-white bg-black py-[13px] pl-[20px] font-Open-Sans font-normal text-[16px] leading-[22px] mt-[5px]"
       />
     </label>
   );
