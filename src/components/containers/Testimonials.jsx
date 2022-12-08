@@ -42,9 +42,9 @@ export default function Testimonials() {
     }
   };
   return (
-    <section className="flex justify-between mt-[50px]">
-      <img src={TestimonialsImgLeft} alt="Red Art" className="w-[13vw] h-[36vw] mt-[27px]" />
-      <article className="flex justify-center items-center flex-col max-w-[50vw]">
+    <section className="flex justify-between mt-[50px] max-w-[1500px] mx-auto">
+      <img src={TestimonialsImgLeft} alt="Red Art" className="w-[13vw] max-w-[195px] h-[36vw] max-h-[546px] mt-[27px]" />
+      <article className="flex flex-col items-center justify-center 2xl:justify-end 2xl:pb-[180px] w-[50vw] max-w-[744px]">
         <h4 className="font-Druk-Text-Wide font-bold text-[36px] leading-[45px] text-center mb-[20px]">
           &quot;
           {testimonials[actual - 1].title}
@@ -65,8 +65,8 @@ export default function Testimonials() {
           </button>
         </p>
       </article>
-      <img src={TestimonialsImgKetchup} alt="Ketchup" className="absolute right-0 w-[30vw] h-[50vw] mt-[10px] z-10" />
-      <img src={TestimonialsImgRight} alt="Ketchup" className="w-[15vw] h-[36vw] mt-[121px]" />
+      <img src={TestimonialsImgKetchup} alt="Ketchup" className="absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] mt-[10px] z-10" />
+      <img src={TestimonialsImgRight} alt="Ketchup" className="w-[15vw] max-w-[223px] h-[36vw] max-h-[546px] mt-[121px]" />
     </section>
   );
 }

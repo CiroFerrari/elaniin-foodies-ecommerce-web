@@ -28,6 +28,7 @@ export default function MenuListContainer() {
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
+    optionsDishes.params.categories = [];
     if (event.target.value === '') {
       optionsDishes.params.q = '';
       axios.request(optionsDishes).then((response) => {
@@ -114,9 +115,9 @@ export default function MenuListContainer() {
   };
 
   return (
-    <section className="pt-[80px] px-[60px] bg-[#f8f8f8]">
+    <section className="pt-[80px] px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto">
       <div className="flex mb-[96px]">
-        <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[43px]">
+        <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[43px] max-w-[467px]">
           <img src={searchImg} alt="Search" />
           <input
             id="search"
