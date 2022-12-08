@@ -20,29 +20,99 @@ const optionsCategories = {
 
 export default function MenuListContainer() {
   const [search, setSearch] = useState('');
-  const [result, setResult] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [result, setResult] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [actualPage, setActualPage] = useState(1);
+  const [pagesButtons, setPagesButtons] = useState([1]);
+
   const handleSearch = (event) => {
     setSearch(event.target.value);
+    if (event.target.value === '') {
+      optionsDishes.params.q = '';
+      axios.request(optionsDishes).then((response) => {
+        setResult(response.data.data);
+        setTotalPages(response.data.meta.last_page);
+      }).catch((error) => {
+        console.error(error);
+      });
+    } else {
+      optionsDishes.params.q = event.target.value;
+      axios.request(optionsDishes).then((response) => {
+        setResult(response.data.data);
+        setTotalPages(response.data.meta.last_page);
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
   };
 
+  const handleCategoryFilter = (category) => {
+    setSearch('');
+    if (category === 'Todas') {
+      console.log('Todas');
+      optionsDishes.params.categories = [];
+      optionsDishes.params.q = '';
+      axios.request(optionsDishes).then((response) => {
+        setResult(response.data.data);
+        setTotalPages(response.data.meta.last_page);
+      }).catch((error) => {
+        console.error(error);
+      });
+    } else {
+      console.log(category);
+      optionsDishes.params.categories = [category];
+      optionsDishes.params.q = '';
+      axios.request(optionsDishes).then((response) => {
+        setResult(response.data.data);
+        setTotalPages(response.data.meta.last_page);
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+  };
+
+  // Fetch Categories - Only the first time
   useEffect(() => {
     axios.request(optionsCategories).then((response) => {
-      console.log(response.data.data);
       setCategories(response.data.data);
     }).catch((error) => {
       console.error(error);
     });
   }, []);
 
+  // Fetch Dishes - Dynamic Pages
   useEffect(() => {
+    optionsDishes.params.page = actualPage;
     axios.request(optionsDishes).then((response) => {
-      console.log(response.data.data);
       setResult(response.data.data);
+      setTotalPages(response.data.meta.last_page);
     }).catch((error) => {
       console.error(error);
     });
-  }, [search]);
+  }, [actualPage]);
+
+  // Dynamic Pagination Buttons
+  useEffect(() => {
+    const tempArray = [];
+    for (let i = 1; i <= totalPages; i += 1) {
+      tempArray.push(i);
+    }
+    setPagesButtons(tempArray);
+  }, [totalPages]);
+
+  // Change Page
+  const handlePageChange = (pageClicked) => {
+    console.log(pageClicked);
+    if (pageClicked === 'next' && actualPage < totalPages) {
+      setActualPage(actualPage + 1);
+    } else if (pageClicked === 'next' && actualPage === totalPages) {
+      setActualPage(actualPage);
+    } else {
+      setActualPage(pageClicked);
+    }
+  };
+
   return (
     <section className="pt-[80px] px-[60px] bg-[#f8f8f8]">
       <div className="flex mb-[96px]">
@@ -60,10 +130,10 @@ export default function MenuListContainer() {
         {
           categories.length > 0
           && (
-          <div className="flex items-center">
-            <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Todas</button>
-            {categories.map((item) => <button key={item.id} type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">{item.name}</button>)}
-          </div>
+            <div className="flex items-center">
+              <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter('Todas')}>Todas</button>
+              {categories.map((item) => <button key={item.id} type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter(item.id)}>{item.name}</button>)}
+            </div>
           )
         }
       </div>
@@ -76,13 +146,12 @@ export default function MenuListContainer() {
       </div>
 
       <div className="mt-[70px] flex justify-center gap-[10px]">
-        <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">1</span>
-        <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">2</span>
-        <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">3</span>
-        <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">4</span>
-        <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">Siguiente</span>
+        {
+          pagesButtons.map((item) => <button key={item} type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange(item)}>{item}</button>)
+        }
+        <button type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
       </div>
-      <div className="flex items-center justify-between px-[8vw] mb-[50px]">
+      <div className="flex items-center justify-between px-[8vw] mb-[50px] mt-[70px]">
         <p className="font-bold text-[24px] leading-[24px] mr-[86px] font-Druk-Text-Wide self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[10px]">
           <img src={AppStoreImg} alt="App Store" className="max-w-[184px] max-h-[54px]" />
