@@ -5,41 +5,44 @@ import MenuItemCard from './MenuItemCard';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 
-const options = {
+const optionsDishes = {
   method: 'GET',
   url: 'https://api.foodies.elaniin.dev/dishes',
-  params: { page: '1', limit: '3' },
+  params: { page: '1', limit: '12' },
   headers: { 'Content-Type': 'application/json' },
 };
 
-const itemExample = {
-  id: 'd473886b-cf9b-429f-bb57-92177ca00ab3',
-  title: 'La imposible',
-  description: '1/2 Libra de carne envuelta en tocíno, con cebolla morada, queso cheddar, especias. ',
-  price: 91,
-  image: 'https://cdn.elaniin.com/trainee-program/projects/foodies/assets/images/la-imposible.jpg',
-  categories: [
-    {
-      id: '91d14059-8225-466c-b765-3d9f8527ae29',
-      name: 'Las tradicionales',
-      slug: 'las-tradicionales',
-    },
-  ],
+const optionsCategories = {
+  method: 'GET',
+  url: 'https://api.foodies.elaniin.dev/categories',
+  headers: { 'Content-Type': 'application/json' },
 };
 
 export default function MenuListContainer() {
   const [search, setSearch] = useState('');
-  const result = [1];
+  const [result, setResult] = useState([]);
+  const [categories, setCategories] = useState([]);
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
+
   useEffect(() => {
-    axios.request(options).then((response) => {
-      console.log(response.data);
+    axios.request(optionsCategories).then((response) => {
+      console.log(response.data.data);
+      setCategories(response.data.data);
     }).catch((error) => {
       console.error(error);
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    axios.request(optionsDishes).then((response) => {
+      console.log(response.data.data);
+      setResult(response.data.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }, [search]);
   return (
     <section className="pt-[80px] px-[60px] bg-[#f8f8f8]">
       <div className="flex mb-[96px]">
@@ -54,16 +57,24 @@ export default function MenuListContainer() {
             className="bg-transparent py-[13px] pl-[20px] font-Open-Sans font-normal text-[18px] leading-[25px] flex-1 text-[#00000040]"
           />
         </label>
-        <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Todas</button>
-        <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Las tradicionales</button>
-        <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Recomendaciones</button>
-        <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Para compartir</button>
+        {
+          categories.length > 0
+          && (
+          <div className="flex items-center">
+            <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">Todas</button>
+            {categories.map((item) => <button key={item.id} type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]">{item.name}</button>)}
+          </div>
+          )
+        }
       </div>
-      {
-        result.length > 0
-          ? result.map((index) => <MenuItemCard key={index} item={itemExample} />)
-          : <p>Sin resultados</p>
-      }
+      <div className="flex flex-wrap gap-[20px] px-[59px] justify-center">
+        {
+          result.length > 0
+            ? result.map((item) => <MenuItemCard key={item.id} item={item} />)
+            : <p>Sin resultados</p>
+        }
+      </div>
+
       <div className="mt-[70px] flex justify-center gap-[10px]">
         <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">1</span>
         <span className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]">2</span>
