@@ -6,9 +6,9 @@ import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 export default function DownloadApp() {
   return (
     <>
-      <section className="flex mt-[-112px]">
-        <img src={DownloadAppImg} alt="Foodies App" className="w-[66vw] z-0" />
-        <article className="pt-[200px] ml-[-26vw] gap-[50px] flex flex-col items-center">
+      <section className="flex mt-[-112px] max-w-[1500px] mx-auto">
+        <img src={DownloadAppImg} alt="Foodies App" className="w-[66vw] max-w-[1298px] z-0" />
+        <article className="pt-[200px] ml-[-26vw] 2xl:ml-[-390px] gap-[50px] flex flex-col items-center">
           <h3 className="font-Druk-Text-Wide font-bold text-[35px] leading-[35px] text-center mb-[57px]">
             Obten mas beneficios
             <span className="bg-[#FFD600] block p-[11px] pl-[5px] z-0 mt-[-11px]">Descarga nuestra App</span>
@@ -41,7 +41,7 @@ export default function DownloadApp() {
           </div>
         </article>
       </section>
-      <section className="flex items-center justify-between px-[8vw] mt-[-112px]">
+      <section className="flex items-center justify-between px-[8vw] mt-[-112px] max-w-[1500px] mx-auto">
         <p className="font-bold text-[24px] leading-[24px] mr-[86px] font-Druk-Text-Wide self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[10px]">
           <img src={AppStoreImg} alt="App Store" className="max-w-[184px] max-h-[54px]" />

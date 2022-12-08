@@ -91,7 +91,7 @@ export default function BranchesContainer() {
   };
 
   return (
-    <section className="mt-[80px] mb-[24px] flex">
+    <section className="mt-[80px] mb-[24px] flex max-w-[1500px] mx-auto">
       <div className="lg:w-[45vw]">
         <h3 className="font-Druk-Text-Wide font-bold text-[40px] leading-[40px] text-center mb-[32px]">Estamos para ti</h3>
         <div className="flex">
@@ -115,7 +115,7 @@ export default function BranchesContainer() {
         }
 
       </div>
-      <img className="lg:w-[55vw]" src={ElSalvadorMap} alt="El Salvador map" />
+      <img className="lg:w-[55vw] max-w-[824px]" src={ElSalvadorMap} alt="El Salvador map" />
     </section>
   );
 }

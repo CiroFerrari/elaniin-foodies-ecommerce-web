@@ -5,8 +5,8 @@ import CtaButton from '../base/CtaButton';
 
 export default function HomeAbout() {
   return (
-    <section className="mt-[80px] flex">
-      <div style={{ backgroundImage: `url(${HeroAboutImg})`, backgroundSize: 'cover' }} className="h-[565px] w-[55vw] flex justify-end items-end pr-[40px] pb-[61px]">
+    <section className="mt-[80px] flex max-w-[1500px] mx-auto">
+      <div style={{ backgroundImage: `url(${HeroAboutImg})`, backgroundSize: 'cover' }} className="h-[565px] w-[55vw] max-w-[816px] flex justify-end items-end pr-[40px] pb-[61px]">
         <h2 className="text-white max-w-[579px] font-Druk-Text-Wide font-bold text-[50px] leading-[50px] text-right">
           LA COMIDA ES
           <span className="text-[#FFD600]"> NUESTRO ARTE</span>
