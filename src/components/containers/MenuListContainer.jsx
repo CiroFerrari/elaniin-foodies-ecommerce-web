@@ -4,6 +4,7 @@ import searchImg from '../../images/homeBranches/branches-search.svg';
 import MenuItemCard from './MenuItemCard';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
+import EmptySearch from '../../images/emptyStates/no-platillos.png';
 
 const optionsDishes = {
   method: 'GET',
@@ -112,10 +113,12 @@ export default function MenuListContainer() {
     } else {
       setActualPage(pageClicked);
     }
+    const element = document.getElementById('box');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
   };
 
   return (
-    <section className="pt-[80px] px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto">
+    <section className="pt-[80px] px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
       <div className="flex mb-[96px]">
         <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[43px] max-w-[467px]">
           <img src={searchImg} alt="Search" />
@@ -142,16 +145,22 @@ export default function MenuListContainer() {
         {
           result.length > 0
             ? result.map((item) => <MenuItemCard key={item.id} item={item} />)
-            : <p>Sin resultados</p>
+            : <img src={EmptySearch} alt="Empty search" />
         }
       </div>
 
-      <div className="mt-[70px] flex justify-center gap-[10px]">
-        {
-          pagesButtons.map((item) => <button key={item} type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange(item)}>{item}</button>)
-        }
-        <button type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
-      </div>
+      {
+        result.length > 0
+        && (
+          <div className="mt-[70px] flex justify-center gap-[10px]">
+            {
+              pagesButtons.map((item) => <button key={item} type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange(item)}>{item}</button>)
+            }
+            <button type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
+          </div>
+        )
+      }
+
       <div className="flex items-center justify-between px-[8vw] mb-[50px] mt-[70px]">
         <p className="font-bold text-[24px] leading-[24px] mr-[86px] font-Druk-Text-Wide self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[10px]">

@@ -5,6 +5,7 @@ import BranchesButton from '../base/BranchesButton';
 import SearchInput from '../../images/homeBranches/branches-search.svg';
 import TakeAwayImg from '../../images/homeBranches/branches-takeaway.svg';
 import DeliveryImg from '../../images/homeBranches/branches-delivery.svg';
+import EmptySearch from '../../images/emptyStates/error-search.png';
 
 const optionsTakeout = {
   method: 'GET',
@@ -92,7 +93,7 @@ export default function BranchesContainer() {
 
   return (
     <section className="mt-[80px] mb-[24px] flex max-w-[1500px] mx-auto">
-      <div className="lg:w-[45vw]">
+      <div className="lg:w-[45vw] flex flex-col">
         <h3 className="font-Druk-Text-Wide font-bold text-[40px] leading-[40px] text-center mb-[32px]">Estamos para ti</h3>
         <div className="flex">
           <BranchesButton name="Para llevar" image={TakeAwayImg} active={takeawayActive} onClick={takeaway} />
@@ -111,7 +112,11 @@ export default function BranchesContainer() {
                 <p className="font-Open-Sans font-normal text-[16px] leading[22px]">{item.description.slice(34)}</p>
               </article>
             ))
-            : <p>Sin resultados</p>
+            : (
+              <div className="grow flex justify-center items-center1">
+                <img src={EmptySearch} alt="Empty search" className="max-w-[215px] mx-auto my-auto" />
+              </div>
+            )
         }
 
       </div>
