@@ -47,15 +47,15 @@ export default function HomeContact() {
     });
   };
   return (
-    <section className="bg-black py-[112px] z-0 mt-[-60px] flex flex-col justify-center items-center">
-      <div className="flex flex-col justify-center items-center max-w-[1500px] mx-auto">
-        <h3 className="text-center font-Druk-Text-Wide font-bold text-[36px] leading-[36px] text-white mb-[17px]">Cuentanos tu experiencia</h3>
-        <p className="text-white text-center font-Open-Sans font-normal text-[24px] leading-[33px] w-[46vw] max-w-[698px] mb-[40px]">
+    <section className="bg-black pt-[73px] md:pt-[112px] md:pb-[378px] xl:pb-[112px] z-0 md:mt-[-60px] flex flex-col justify-center items-center pb-[358px]">
+      <div className="flex flex-col justify-center items-center max-w-[1500px] mx-auto px-[16px]">
+        <h3 className="text-center font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[36px] md:leading-[36px] text-white mb-[20px] md:mb-[17px]">Cuentanos tu experiencia</h3>
+        <p className="text-white text-center font-Open-Sans font-normal text-[18px] leading-[24px] md:text-[24px] md:leading-[33px] md:w-[554px] xl:w-[46vw] xl:max-w-[698px] mb-[39px] md:mb-[40px]">
           Don&apos;t miss out on our great offers & Receive deals from all our
           top restaurants via e-mail.
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-[23px]">
-          <div className="flex gap-[50px]">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-[40px] md:gap-[23px]">
+          <div className="flex flex-col xl:flex-row gap-[10px] md:gap-[50px]">
             <div className="flex flex-col gap-[10px]">
               <ContactInput
                 description="Nombre y Apellido"
@@ -73,18 +73,18 @@ export default function HomeContact() {
               />
             </div>
             <label htmlFor="message" className="flex flex-col text-white font-Open-Sans font-normal text-[12px] leading-[16px]">
-              Correo electrónico
+              Mensaje
               <textarea
                 id="message"
                 type="text"
                 value={message}
                 onChange={handleMessage}
                 placeholder="El día de ahora mi experiencia fue..."
-                className="w-[40vw] max-w-[594px] h-[132px] border-[1px] border-solid border-white bg-transparent py-[14px] pl-[20px] font-Open-Sans font-normal text-[16px] leading-[22px] mt-[5px]"
+                className="rounded-[4px] md:w-[634px] xl:w-[40vw] xl:max-w-[594px] h-[132px] border-[1px] border-solid border-white bg-transparent py-[14px] pl-[20px] font-Open-Sans font-normal text-[16px] leading-[22px] mt-[5px]"
               />
             </label>
           </div>
-          <button type="submit" className="bg-[#FFD600] rounded-[4px] py-[14px] px-[20px] self-end font-Open-Sans font-bold text-[16px] leading-[22px]">Enviar comentarios</button>
+          <button type="submit" className="bg-[#FFD600] ml-[55px] md:ml-[0px] md:self-center w-[220px] md:mt-[34px] rounded-[4px] py-[14px] px-[20px] xl:self-end font-Open-Sans font-bold text-[16px] leading-[22px] xl:w-[196px]">Enviar comentarios</button>
         </form>
       </div>
     </section>

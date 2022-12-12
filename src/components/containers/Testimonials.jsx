@@ -42,15 +42,15 @@ export default function Testimonials() {
     }
   };
   return (
-    <section className="flex justify-between mt-[50px] max-w-[1500px] mx-auto">
-      <img src={TestimonialsImgLeft} alt="Red Art" className="w-[13vw] max-w-[195px] h-[36vw] max-h-[546px] mt-[27px]" />
-      <article className="flex flex-col items-center justify-center 2xl:justify-end 2xl:pb-[180px] w-[50vw] max-w-[744px]">
-        <h4 className="font-Druk-Text-Wide font-bold text-[36px] leading-[45px] text-center mb-[20px]">
+    <section className="flex justify-center items-start px-[16px] md:px-[0px] mt-[55px] md:h-[633px] xl:justify-between md:mt-[9px] xl:mt-[50px] max-w-[1500px] mx-auto">
+      <img src={TestimonialsImgLeft} alt="Red Art" className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[27px]" />
+      <article className="z-10 self-end flex flex-col items-center justify-end pb-[67px] md:pb-[220px] lg:pb-[200px] xl:pb-[180px] md:w-[612px] xl:w-[50vw] xl:max-w-[744px]">
+        <h4 className="font-Druk-Text-Wide font-bold text-[20px] leading-[25px] md:text-[30px] md:leading-[38px] xl:text-[36px] xl:leading-[45px] text-center mb-[10px] md:mb-[20px]">
           &quot;
           {testimonials[actual - 1].title}
           &quot;
         </h4>
-        <p className="font-Open-Sans font-normal text-[18px] leading-[23px] text-[#00000040] text-center mb-[61px]">
+        <p className="font-Open-Sans font-normal text-[18px] leading-[23px] text-[#00000040] text-center mb-[35px] md:mb-[61px]">
           {testimonials[actual - 1].description}
         </p>
         <p className="font-Syne font-bold text-[20px] leading-[21px] flex gap-[19px]">
@@ -65,8 +65,8 @@ export default function Testimonials() {
           </button>
         </p>
       </article>
-      <img src={TestimonialsImgKetchup} alt="Ketchup" className="absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] mt-[10px] z-10" />
-      <img src={TestimonialsImgRight} alt="Ketchup" className="w-[15vw] max-w-[223px] h-[36vw] max-h-[546px] mt-[121px]" />
+      <img src={TestimonialsImgKetchup} alt="Ketchup" className="hidden xl:block absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] mt-[10px] z-10" />
+      <img src={TestimonialsImgRight} alt="Ketchup" className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
     </section>
   );
 }
