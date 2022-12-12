@@ -21,9 +21,9 @@ export default function NavBar() {
   }, [location]);
   return (
     <section className="max-w-[1500px] mx-auto">
-      <nav className="z-10 mt-[57px] ml-[101px]">
-        <p className="hidden">Foodies</p>
-        <menu className="flex gap-[39px] items-center">
+      <nav className="z-10 mt-[47px] ml-[16px] md:mt-[57px] md:ml-[53px] xl:ml-[101px]">
+        <Link to="/" className="lg:hidden font-bold text-[27px] leading-[27px] mr-[86px] font-Druk-Text-Wide" style={colorText}>Foodies</Link>
+        <menu className="gap-[39px] items-center hidden lg:flex">
           <Link to="/" className="font-bold text-[27px] leading-[27px] mr-[86px] font-Druk-Text-Wide" style={colorText}>Foodies</Link>
           <Link to="/acercade" className="font-bold text-[18px] leading-[21.7px] font-Syne flex items-center ml-[-39px]" style={colorText}>Acerca de</Link>
           <Link to="/restaurantes" className="font-bold text-[18px] leading-[21.7px] font-Syne flex items-center" style={colorText}>Restaurantes</Link>

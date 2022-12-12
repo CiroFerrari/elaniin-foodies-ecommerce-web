@@ -92,35 +92,36 @@ export default function BranchesContainer() {
   };
 
   return (
-    <section className="mt-[80px] mb-[24px] flex max-w-[1500px] mx-auto">
-      <div className="lg:w-[45vw] flex flex-col">
-        <h3 className="font-Druk-Text-Wide font-bold text-[40px] leading-[40px] text-center mb-[32px]">Estamos para ti</h3>
+    <section className="mt-[27px] md:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
+      <div className="xl:w-[45vw] flex flex-col">
+        <h3 className="max-w-[295px] mb-[30px] md:max-w-none pl-[16px] text-[35px] leading-[35px] md:pl-[0px] font-Druk-Text-Wide font-bold md:text-[40px] md:leading-[40px] md:text-left md:ml-[53px] xl:text-center xl:ml-[0px] md:mb-[32px]">Estamos para ti</h3>
         <div className="flex">
           <BranchesButton name="Para llevar" image={TakeAwayImg} active={takeawayActive} onClick={takeaway} />
           <BranchesButton name="Domicilio" image={DeliveryImg} active={deliveryActive} onClick={delivery} />
         </div>
-        <div className="border-[1px] border-[#C4C4C4] border-solid p-[12px] flex gap-[30px] pl-[7vw] mb-[15px]">
-          <img src={SearchInput} alt="Search" />
-          <input type="text" className="flex-1 px-[10px] font-Open-Sans font-normal text-[18px] leading-[24.5px]" placeholder="Buscar nombre o dirección" value={search} onChange={(event) => handleSearch(event.target.value)} />
+        <div className="border-[1px] border-[#C4C4C4] border-solid pl:[19px] md:pb-[16px] p-[12px] flex gap-[15px] md:gap-[30px] md:pl-[7vw] mb-[5px] md:mb-[15px]">
+          <img src={SearchInput} alt="Search" className="h-[16px] md:h-[25px]" />
+          <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[18px] md:leading-[24.5px]" placeholder="Buscar nombre o dirección" value={search} onChange={(event) => handleSearch(event.target.value)} />
         </div>
         {
           locations.length > 0
             ? locations.map((item) => (
-              <article key={item.id} className="border-[1px] border-black border-solid px-[22px] py-[15px] my-[10px] ml-[7vw] mr-[22px]">
-                <h5 className="font-Syne font-bold text-[20px] leading-[24px] mb-[5px]">{item.title}</h5>
-                <p className="font-Open-Sans font-normal text-[16px] leading[22px]">{item.description.slice(0, 34)}</p>
-                <p className="font-Open-Sans font-normal text-[16px] leading[22px]">{item.description.slice(34)}</p>
+              <article key={item.id} className="border-[1px] border-black border-solid rounded-[4px] px-[12px] md:px-[22px] py-[15px] mt-[10px] md:my-[10px] ml-[16px] md:ml-[7vw] mr-[16px] md:mr-[22px]">
+                <h5 className="font-Syne font-bold text-[18px] leading-[22px] md:text-[20px] md:leading-[24px] mb-[5px]">{item.title}</h5>
+                <p className="font-Open-Sans font-normal text-[14px] leading[19px] md:text-[16px] md:leading[22px]">{item.description.slice(0, 34)}</p>
+                <p className="font-Open-Sans font-normal text-[14px] leading[19px] md:text-[16px] md:leading[22px]">{item.description.slice(34)}</p>
               </article>
             ))
             : (
-              <div className="grow flex justify-center items-center1">
-                <img src={EmptySearch} alt="Empty search" className="max-w-[215px] mx-auto my-auto" />
+              <div className="grow flex flex-col justify-center items-center">
+                <img src={EmptySearch} alt="Empty search" className="max-w-[215px]" />
+                <p className="font-Syne font-bold text-[20px] leading-[24px] max-w-[303px] text-center mt-[23px]">¡No hemos encontrado lo que buscas!</p>
               </div>
             )
         }
 
       </div>
-      <img className="lg:w-[55vw] max-w-[824px]" src={ElSalvadorMap} alt="El Salvador map" />
+      <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px]" src={ElSalvadorMap} alt="El Salvador map" />
     </section>
   );
 }

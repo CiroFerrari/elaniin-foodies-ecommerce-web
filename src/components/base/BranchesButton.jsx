@@ -23,8 +23,8 @@ export default function BranchesButton(props) {
     toggle = toggleClass1;
   }
   return (
-    <button type="button" className="font-Syne font-bold text-[25px] leading-[30px] flex-1 flex justify-center items-center border-[1px] border-[#C4C4C4] border-solid p-[17px]" style={backgroundClass} onClick={onClick}>
-      <img src={image} alt="Button img" className="mr-[25px]" style={toggle} />
+    <button type="button" className="text-[16px] leading-[19px] font-Syne font-bold md:text-[25px] md:leading-[30px] flex-1 flex justify-center items-center border-[1px] border-[#C4C4C4] border-solid p-[17px]" style={backgroundClass} onClick={onClick}>
+      <img src={image} alt="Button img" className="h-[18px] md:h-[25px] mr-[10px] md:mr-[25px]" style={toggle} />
       {name}
     </button>
   );

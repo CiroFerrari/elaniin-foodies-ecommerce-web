@@ -30,3 +30,19 @@ input#search:focus-visible {
     border: none;
     outline: none;
 }
+
+.home-header {
+    background-image: url('./images/heroImages/hero-background-mobile.png');
+}
+
+@media(min-width: 768px) {
+    .home-header {
+        background-image: url('./images/heroImages/hero-background-md.png');
+    }
+}
+
+@media(min-width: 1280px) {
+    .home-header {
+        background-image: url('./images/heroImages/hero-background.png');
+    }
+}
