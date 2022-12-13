@@ -2,7 +2,9 @@ import React from 'react';
 import CloseFilterImg from '../../images/menuCategories/close-filter.svg';
 
 export default function MenuFilterMobile(props) {
-  const { categories, setShowMobileFilter, handleCategoryFilter } = props;
+  const {
+    categories, setShowMobileFilter, handleCategoryFilter, actualCategory,
+  } = props;
   console.log(categories);
   return (
     <section
@@ -17,14 +19,14 @@ export default function MenuFilterMobile(props) {
         <img src={CloseFilterImg} alt="Cross" className="md:hidden" />
       </button>
       {
-          categories.length > 0
-          && (
-            <div className="flex flex-col gap-[50px]">
-              <button type="button" className="text-left text-white font-Syne font-bold text-[25px] leading-[30px]" onClick={() => { handleCategoryFilter('Todas'); setShowMobileFilter(false); }}>Todas</button>
-              {categories.map((item) => <button key={item.id} type="button" className="text-left text-white font-Syne font-bold text-[25px] leading-[30px]" onClick={() => { handleCategoryFilter(item.id); setShowMobileFilter(false); }}>{item.name}</button>)}
-            </div>
-          )
-        }
+        categories.length > 0
+        && (
+          <div className="flex flex-col gap-[50px]">
+            <button type="button" className={`text-left text-white font-Syne font-bold text-[25px] leading-[30px] ${(actualCategory === 'Todas') && 'underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => { handleCategoryFilter('Todas'); setShowMobileFilter(false); }}>Todas</button>
+            {categories.map((item) => <button key={item.id} type="button" className={`text-left text-white font-Syne font-bold text-[25px] leading-[30px] ${(actualCategory === item.name) && 'underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => { handleCategoryFilter(item.id, item.name); setShowMobileFilter(false); }}>{item.name}</button>)}
+          </div>
+        )
+      }
     </section>
   );
 }
