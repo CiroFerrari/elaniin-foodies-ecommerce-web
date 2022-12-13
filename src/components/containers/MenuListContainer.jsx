@@ -5,6 +5,7 @@ import MenuItemCard from './MenuItemCard';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import EmptySearch from '../../images/emptyStates/no-platillos.png';
+import FilterImg from '../../images/menuCategories/filter.svg';
 
 const optionsDishes = {
   method: 'GET',
@@ -114,13 +115,13 @@ export default function MenuListContainer() {
       setActualPage(pageClicked);
     }
     const element = document.getElementById('box');
-    element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
 
   return (
-    <section className="pt-[80px] px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
-      <div className="flex mb-[96px]">
-        <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[43px] max-w-[467px]">
+    <section className="pt-[25px] px-[16px] md:pt-[80px] md:px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
+      <div className="flex justify-center md:justify-start mb-[40px] md:mb-[96px]">
+        <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[43px] max-w-[467px]">
           <img src={searchImg} alt="Search" />
           <input
             id="search"
@@ -128,20 +129,26 @@ export default function MenuListContainer() {
             value={search}
             onChange={handleSearch}
             placeholder="Busca tu platillo favorito..."
-            className="bg-transparent py-[13px] pl-[20px] font-Open-Sans font-normal text-[18px] leading-[25px] flex-1 text-[#00000040]"
+            className="bg-transparent py-[13px] pl-[6px] md:pl-[20px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[18px] md:leading-[25px] flex-1 text-[#00000040]"
           />
         </label>
         {
           categories.length > 0
           && (
-            <div className="flex items-center">
+            <div className="hidden md:flex items-center">
               <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter('Todas')}>Todas</button>
               {categories.map((item) => <button key={item.id} type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter(item.id)}>{item.name}</button>)}
             </div>
           )
         }
+        {
+          categories.length > 0
+          && (
+            <img src={FilterImg} alt="Filter" className="md:hidden" />
+          )
+        }
       </div>
-      <div className="flex flex-wrap gap-[20px] px-[59px] justify-center">
+      <div className="flex flex-wrap gap-[20px] md:px-[59px] justify-center">
         {
           result.length > 0
             ? result.map((item) => <MenuItemCard key={item.id} item={item} />)
@@ -152,7 +159,7 @@ export default function MenuListContainer() {
       {
         result.length > 0
         && (
-          <div className="mt-[70px] flex justify-center gap-[10px]">
+          <div className="mt-[58px] md:mt-[70px] flex justify-center gap-[10px] flex-wrap">
             {
               pagesButtons.map((item) => <button key={item} type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange(item)}>{item}</button>)
             }
@@ -161,13 +168,14 @@ export default function MenuListContainer() {
         )
       }
 
-      <div className="flex items-center justify-between px-[8vw] mb-[50px] mt-[70px]">
-        <p className="font-bold text-[24px] leading-[24px] mr-[86px] font-Druk-Text-Wide self-end text-[#00000080]">Foodies</p>
+      <div className="flex flex-col gap-[18px] md:gap-[0px] md:flex-row items-center justify-between px-[8vw] mb-[20px] md:mb-[50px] mt-[70px]">
+        <p className="font-bold text-[24px] leading-[24px] md:mr-[86px] font-Druk-Text-Wide md:self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[10px]">
-          <img src={AppStoreImg} alt="App Store" className="max-w-[184px] max-h-[54px]" />
-          <img src={PlayStoreImg} alt="Play Store" className="max-w-[184px] max-h-[54px]" />
+          <img src={AppStoreImg} alt="App Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
+          <img src={PlayStoreImg} alt="Play Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
         </div>
       </div>
+      <hr className="md:hidden mx-[4vw] mt-[20px] md:mt-[29px] border-b-[1px] border-b-solid border-b-[#FFC700]" />
     </section>
   );
 }

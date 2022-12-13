@@ -92,8 +92,8 @@ export default function BranchesContainer() {
   };
 
   return (
-    <section className="mt-[27px] md:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
-      <div className="xl:w-[45vw] flex flex-col">
+    <section id="branchesContainer" className="mt-[27px] md:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
+      <div className="xl:w-[45vw] sm:mx-auto flex flex-col">
         <h3 className="max-w-[295px] mb-[30px] md:max-w-none pl-[16px] text-[35px] leading-[35px] md:pl-[0px] font-Druk-Text-Wide font-bold md:text-[40px] md:leading-[40px] md:text-left md:ml-[53px] xl:text-center xl:ml-[0px] md:mb-[32px]">Estamos para ti</h3>
         <div className="flex">
           <BranchesButton name="Para llevar" image={TakeAwayImg} active={takeawayActive} onClick={takeaway} />

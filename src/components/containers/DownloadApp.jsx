@@ -42,7 +42,7 @@ export default function DownloadApp() {
         </article>
       </section>
       <section className="mt-[136px] gap-[18px] md:gap-[0px] md:mt-[70px] flex flex-col md:flex-row items-center justify-between px-[8vw] 2xl:mt-[-112px] max-w-[1500px] mx-auto">
-        <p className="font-bold text-[24px] leading-[24px] mr-[86px] font-Druk-Text-Wide self-end text-[#00000080]">Foodies</p>
+        <p className="font-bold text-[24px] leading-[24px] md:mr-[86px] font-Druk-Text-Wide md:self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[6px] md:gap-[10px]">
           <img src={AppStoreImg} alt="App Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
           <img src={PlayStoreImg} alt="Play Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />

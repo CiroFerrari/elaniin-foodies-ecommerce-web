@@ -25,7 +25,7 @@ export default function HomeAbout() {
           veniam omnis voluptatem dicta quisquam fugiat.
           Obcaecati provident, vero excepturi dolores iste explicabo quibusdam nisi.
         </p>
-        <CtaButton name="Contáctanos" />
+        <CtaButton name="Contáctanos" navigation="homeContact" />
       </article>
     </section>
   );
