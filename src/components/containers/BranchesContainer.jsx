@@ -6,6 +6,7 @@ import SearchInput from '../../images/homeBranches/branches-search.svg';
 import TakeAwayImg from '../../images/homeBranches/branches-takeaway.svg';
 import DeliveryImg from '../../images/homeBranches/branches-delivery.svg';
 import EmptySearch from '../../images/emptyStates/error-search.png';
+import BranchItem from './BranchItem';
 
 const optionsTakeout = {
   method: 'GET',
@@ -26,6 +27,7 @@ export default function BranchesContainer() {
   const [deliveryActive, setDeliveryActive] = useState('false');
   const [locations, setLocations] = useState([]);
   const [search, setSearch] = useState('');
+  const [locationSelected, setLocationSelected] = useState('');
 
   useEffect(() => {
     if (takeawayActive === 'true') {
@@ -33,6 +35,7 @@ export default function BranchesContainer() {
         console.log('Takeaway fetch');
         console.log(response.data.data);
         setLocations(response.data.data);
+        setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
         console.error(error);
       });
@@ -41,6 +44,7 @@ export default function BranchesContainer() {
         console.log('Delivery fetch');
         console.log(response.data.data);
         setLocations(response.data.data);
+        setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
         console.error(error);
       });
@@ -75,6 +79,7 @@ export default function BranchesContainer() {
         console.log('Takeaway fetch');
         console.log(response.data.data);
         setLocations(response.data.data);
+        setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
         console.error(error);
       });
@@ -85,11 +90,17 @@ export default function BranchesContainer() {
         console.log('Takeaway fetch');
         console.log(response.data.data);
         setLocations(response.data.data);
+        setLocationSelected(response.data.data[0].id);
+        console.log(response.data.data[0].id);
       }).catch((error) => {
         console.error(error);
       });
     }
   };
+
+  useEffect(() => {
+    console.log(locationSelected);
+  }, [locationSelected]);
 
   return (
     <section id="branchesContainer" className="mt-[27px] md:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
@@ -106,11 +117,14 @@ export default function BranchesContainer() {
         {
           locations.length > 0
             ? locations.map((item) => (
-              <article key={item.id} className="border-[1px] border-black border-solid rounded-[4px] px-[12px] md:px-[22px] py-[15px] mt-[10px] md:my-[10px] ml-[16px] md:ml-[7vw] mr-[16px] md:mr-[22px]">
-                <h5 className="font-Syne font-bold text-[18px] leading-[22px] md:text-[20px] md:leading-[24px] mb-[5px]">{item.title}</h5>
-                <p className="font-Open-Sans font-normal text-[14px] leading[19px] md:text-[16px] md:leading[22px]">{item.description.slice(0, 34)}</p>
-                <p className="font-Open-Sans font-normal text-[14px] leading[19px] md:text-[16px] md:leading[22px]">{item.description.slice(34)}</p>
-              </article>
+              <BranchItem
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                selected={locationSelected}
+                setLocationSelected={setLocationSelected}
+              />
             ))
             : (
               <div className="grow flex flex-col justify-center items-center">

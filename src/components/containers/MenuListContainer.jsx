@@ -6,6 +6,7 @@ import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import EmptySearch from '../../images/emptyStates/no-platillos.png';
 import FilterImg from '../../images/menuCategories/filter.svg';
+import MenuFilterMobile from './MenuFilterMobile';
 
 const optionsDishes = {
   method: 'GET',
@@ -27,10 +28,13 @@ export default function MenuListContainer() {
   const [totalPages, setTotalPages] = useState(1);
   const [actualPage, setActualPage] = useState(1);
   const [pagesButtons, setPagesButtons] = useState([1]);
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
+  const [actualCategory, setActualCategory] = useState('Todas');
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
     optionsDishes.params.categories = [];
+    setActualCategory('Todas');
     if (event.target.value === '') {
       optionsDishes.params.q = '';
       axios.request(optionsDishes).then((response) => {
@@ -50,9 +54,10 @@ export default function MenuListContainer() {
     }
   };
 
-  const handleCategoryFilter = (category) => {
+  const handleCategoryFilter = (category, categoryName) => {
     setSearch('');
     if (category === 'Todas') {
+      setActualCategory('Todas');
       console.log('Todas');
       optionsDishes.params.categories = [];
       optionsDishes.params.q = '';
@@ -63,7 +68,8 @@ export default function MenuListContainer() {
         console.error(error);
       });
     } else {
-      console.log(category);
+      setActualCategory(categoryName);
+      console.log(categoryName);
       optionsDishes.params.categories = [category];
       optionsDishes.params.q = '';
       axios.request(optionsDishes).then((response) => {
@@ -135,19 +141,36 @@ export default function MenuListContainer() {
         {
           categories.length > 0
           && (
-            <div className="hidden md:flex items-center">
-              <button type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter('Todas')}>Todas</button>
-              {categories.map((item) => <button key={item.id} type="button" className="mr-[40px] font-Syne font-bold text-[18px] leading-[22px]" onClick={() => handleCategoryFilter(item.id)}>{item.name}</button>)}
+            <div className="hidden lg:flex items-center">
+              <button type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] ${(actualCategory === 'Todas') && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter('Todas')}>Todas</button>
+              {categories.map((item) => <button key={item.id} type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] ${(actualCategory === item.name) && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter(item.id, item.name)}>{item.name}</button>)}
             </div>
           )
         }
         {
           categories.length > 0
           && (
-            <img src={FilterImg} alt="Filter" className="md:hidden" />
+            <button
+              type="button"
+              onClick={() => setShowMobileFilter(!showMobileFilter)}
+            >
+              <img src={FilterImg} alt="Filter" className="lg:hidden" />
+            </button>
           )
         }
       </div>
+      {
+        showMobileFilter
+        && (
+          <MenuFilterMobile
+            categories={categories}
+            setShowMobileFilter={setShowMobileFilter}
+            handleCategoryFilter={handleCategoryFilter}
+            actualCategory={actualCategory}
+          />
+        )
+      }
+
       <div className="flex flex-wrap gap-[20px] md:px-[59px] justify-center">
         {
           result.length > 0
@@ -161,9 +184,9 @@ export default function MenuListContainer() {
         && (
           <div className="mt-[58px] md:mt-[70px] flex justify-center gap-[10px] flex-wrap">
             {
-              pagesButtons.map((item) => <button key={item} type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange(item)}>{item}</button>)
+              pagesButtons.map((item) => <button key={item} type="button" className={`py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px] ${(actualPage === item) && 'bg-black text-[#FFD600]'}`} onClick={() => handlePageChange(item)}>{item}</button>)
             }
-            <button type="button" className="py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
+            <button type="button" className="bg-[#FFF1BF] py-[10px] px-[18px] rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
           </div>
         )
       }

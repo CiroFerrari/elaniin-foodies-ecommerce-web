@@ -23,20 +23,33 @@ function classNames(...classes) {
 
 export default function NavBarDeprecated() {
   const [colorText, setColorText] = useState();
+  const [bgNav, setBgNav] = useState();
   const [openMobile, setOpenMobile] = useState(false);
   const location = useLocation();
+  const [actualPage, setActualPage] = useState('home');
   useEffect(() => {
     if (location.pathname === '/menu' && !openMobile) {
       setColorText(menuTextColor);
     } else {
       setColorText(homeTextColor);
     }
+    if (openMobile) {
+      setBgNav('bg-[#f8f8f8]');
+    } else {
+      setBgNav('bg-transparent');
+    }
   }, [location, openMobile]);
+
+  const handlePageChange = (page) => {
+    console.log(`page ${page}`);
+    setActualPage(page);
+    console.log(`actual page ${actualPage}`);
+  };
   return (
-    <Disclosure as="nav" className="bg-[#f8f8f8] rounded-[300px]">
+    <Disclosure as="nav" className="rounded-b-[30px] absolute w-[100%] z-20">
       {({ open }) => (
         <>
-          <div className="relative flex items-center pt-[47px] mx-[16px] md:ml-[53px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]">
+          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]`}>
             <div className="absolute right-0 flex items-center lg:hidden">
               {/* Mobile menu button */}
               <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
@@ -50,7 +63,12 @@ export default function NavBarDeprecated() {
               </Disclosure.Button>
             </div>
             <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
-              <Link to="/" className="font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide" style={colorText}>
+              <Link
+                to="/"
+                className="font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide"
+                style={colorText}
+                onClick={() => handlePageChange('home')}
+              >
                 Foodies
               </Link>
               <div className="lg:flex lg:items-center hidden sm:ml-6 lg:ml-[0px] ">
@@ -60,9 +78,10 @@ export default function NavBarDeprecated() {
                       key={item.name}
                       to={item.to}
                       style={colorText}
+                      onClick={() => handlePageChange(item.name)}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-black' : 'lg:text-[18px] lg:leading-[22px] lg:font-Syne lg:font-bold text-black hover:bg-gray-700 hover:text-white',
-                        '',
+                        item.current ? 'bg-gray-900 text-black' : 'lg:text-[18px] lg:leading-[22px] lg:font-Syne lg:font-bold text-black',
+                        `${(actualPage === item.name) && 'underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]'}`,
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >
@@ -74,13 +93,13 @@ export default function NavBarDeprecated() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden bg-[#f8f8f8] z-20 mb-[75px]">
+          <Disclosure.Panel className="lg:hidden bg-[#f8f8f8] z-20 lg:mb-[75px] rounded-b-[30px]">
             <div className="space-y-1 px-2 pt-2 pb-3 rounded-[30px] shadow-lg shadow-grey-50">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white font-Syne font-bold text-[25px] leading-[30px]' : 'text-black hover:bg-gray-700 hover:text-white font-Syne font-bold text-[25px] leading-[30px]',
+                    item.current ? 'font-Syne font-bold text-[25px] leading-[30px] underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]' : 'text-black font-Syne font-bold text-[25px] leading-[30px]',
                     'block px-3 py-2 text-base font-medium',
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -88,7 +107,9 @@ export default function NavBarDeprecated() {
                   <Link
                     to={item.to}
                     key={item.name}
+                    onClick={() => handlePageChange(item.name)}
                     aria-current={item.current ? 'page' : undefined}
+                    className={`${(actualPage === item.name) && 'underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]'}`}
                   >
                     {item.name}
                   </Link>

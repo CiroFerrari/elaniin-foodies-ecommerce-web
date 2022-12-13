@@ -31,6 +31,19 @@ input#search:focus-visible {
     outline: none;
 }
 
+input#name:focus-visible, input#email:focus-visible, textarea#message:focus-visible {
+    border: 1px solid #FFC700;
+    color: #FFC700;
+}
+
+input#name:focus-visible::placeholder, input#email:focus-visible::placeholder, textarea#message:focus-visible::placeholder {
+    color: #FFC700;
+}
+
+label:has(input#name:focus-visible), label:has(input#email:focus-visible), label:has(textarea#message:focus-visible) {
+    color: #FFC700;
+}
+
 .home-header {
     background-image: url('./images/heroImages/hero-background-mobile.png');
 }
