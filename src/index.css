@@ -34,10 +34,21 @@ input#search:focus-visible {
 .home-header {
     background-image: url('./images/heroImages/hero-background-mobile.png');
 }
+.menu-header {
+    background-image: url('./images/menuHero/menuHeroBackground-mobile.png');
+    background-position-x: right;
+    background-position-y: -330px;
+}
 
 @media(min-width: 768px) {
     .home-header {
         background-image: url('./images/heroImages/hero-background-md.png');
+    }
+    .menu-header {
+        background-image: url('./images/menuHero/menuHeroBackground.png');
+        background-position-x: right;
+        background-size: contain;
+        background-position-y: 0px;
     }
 }
 
