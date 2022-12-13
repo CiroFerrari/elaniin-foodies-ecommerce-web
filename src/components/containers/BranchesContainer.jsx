@@ -32,8 +32,6 @@ export default function BranchesContainer() {
   useEffect(() => {
     if (takeawayActive === 'true') {
       axios.request(optionsTakeout).then((response) => {
-        console.log('Takeaway fetch');
-        console.log(response.data.data);
         setLocations(response.data.data);
         setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
@@ -41,8 +39,6 @@ export default function BranchesContainer() {
       });
     } else if (deliveryActive === 'true') {
       axios.request(optionsDelivery).then((response) => {
-        console.log('Delivery fetch');
-        console.log(response.data.data);
         setLocations(response.data.data);
         setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
@@ -52,14 +48,12 @@ export default function BranchesContainer() {
   }, [takeawayActive]);
 
   const takeaway = () => {
-    console.log('click takeaway');
     setDeliveryActive('false');
     setTakeawayActive('true');
     setSearch('');
   };
 
   const delivery = () => {
-    console.log('click delivery');
     setDeliveryActive('true');
     setTakeawayActive('false');
     setSearch('');
@@ -76,8 +70,6 @@ export default function BranchesContainer() {
       optionsTakeout.params.q = input;
       optionsDelivery.params.q = '';
       axios.request(optionsTakeout).then((response) => {
-        console.log('Takeaway fetch');
-        console.log(response.data.data);
         setLocations(response.data.data);
         setLocationSelected(response.data.data[0].id);
       }).catch((error) => {
@@ -87,11 +79,8 @@ export default function BranchesContainer() {
       optionsDelivery.params.q = input;
       optionsTakeout.params.q = '';
       axios.request(optionsDelivery).then((response) => {
-        console.log('Takeaway fetch');
-        console.log(response.data.data);
         setLocations(response.data.data);
         setLocationSelected(response.data.data[0].id);
-        console.log(response.data.data[0].id);
       }).catch((error) => {
         console.error(error);
       });
@@ -99,7 +88,6 @@ export default function BranchesContainer() {
   };
 
   useEffect(() => {
-    console.log(locationSelected);
   }, [locationSelected]);
 
   return (

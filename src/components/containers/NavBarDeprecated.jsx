@@ -41,9 +41,7 @@ export default function NavBarDeprecated() {
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
-    console.log(`page ${page}`);
     setActualPage(page);
-    console.log(`actual page ${actualPage}`);
   };
   return (
     <Disclosure as="nav" className="rounded-b-[30px] absolute w-[100%] z-20">
