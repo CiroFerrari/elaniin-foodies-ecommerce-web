@@ -23,6 +23,7 @@ function classNames(...classes) {
 
 export default function NavBarDeprecated() {
   const [colorText, setColorText] = useState();
+  const [bgNav, setBgNav] = useState();
   const [openMobile, setOpenMobile] = useState(false);
   const location = useLocation();
   useEffect(() => {
@@ -31,12 +32,17 @@ export default function NavBarDeprecated() {
     } else {
       setColorText(homeTextColor);
     }
+    if (openMobile) {
+      setBgNav('bg-[#f8f8f8]');
+    } else {
+      setBgNav('bg-transparent');
+    }
   }, [location, openMobile]);
   return (
-    <Disclosure as="nav" className="bg-[#f8f8f8] rounded-[300px]">
+    <Disclosure as="nav" className="rounded-b-[30px] absolute w-[100%] z-20">
       {({ open }) => (
         <>
-          <div className="relative flex items-center pt-[47px] mx-[16px] md:ml-[53px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]">
+          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:ml-[53px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]`}>
             <div className="absolute right-0 flex items-center lg:hidden">
               {/* Mobile menu button */}
               <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
@@ -74,7 +80,7 @@ export default function NavBarDeprecated() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden bg-[#f8f8f8] z-20 mb-[75px]">
+          <Disclosure.Panel className="lg:hidden bg-[#f8f8f8] z-20 lg:mb-[75px] rounded-b-[30px]">
             <div className="space-y-1 px-2 pt-2 pb-3 rounded-[30px] shadow-lg shadow-grey-50">
               {navigation.map((item) => (
                 <Disclosure.Button

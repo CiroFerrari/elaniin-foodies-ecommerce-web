@@ -6,6 +6,7 @@ import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import EmptySearch from '../../images/emptyStates/no-platillos.png';
 import FilterImg from '../../images/menuCategories/filter.svg';
+import MenuFilterMobile from './MenuFilterMobile';
 
 const optionsDishes = {
   method: 'GET',
@@ -27,6 +28,7 @@ export default function MenuListContainer() {
   const [totalPages, setTotalPages] = useState(1);
   const [actualPage, setActualPage] = useState(1);
   const [pagesButtons, setPagesButtons] = useState([1]);
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
@@ -144,10 +146,26 @@ export default function MenuListContainer() {
         {
           categories.length > 0
           && (
-            <img src={FilterImg} alt="Filter" className="md:hidden" />
+            <button
+              type="button"
+              onClick={() => setShowMobileFilter(!showMobileFilter)}
+            >
+              <img src={FilterImg} alt="Filter" className="md:hidden" />
+            </button>
           )
         }
       </div>
+      {
+        showMobileFilter
+        && (
+          <MenuFilterMobile
+            categories={categories}
+            setShowMobileFilter={setShowMobileFilter}
+            handleCategoryFilter={handleCategoryFilter}
+          />
+        )
+      }
+
       <div className="flex flex-wrap gap-[20px] md:px-[59px] justify-center">
         {
           result.length > 0
