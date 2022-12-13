@@ -58,7 +58,6 @@ export default function MenuListContainer() {
     setSearch('');
     if (category === 'Todas') {
       setActualCategory('Todas');
-      console.log('Todas');
       optionsDishes.params.categories = [];
       optionsDishes.params.q = '';
       axios.request(optionsDishes).then((response) => {
@@ -69,7 +68,6 @@ export default function MenuListContainer() {
       });
     } else {
       setActualCategory(categoryName);
-      console.log(categoryName);
       optionsDishes.params.categories = [category];
       optionsDishes.params.q = '';
       axios.request(optionsDishes).then((response) => {
@@ -112,7 +110,6 @@ export default function MenuListContainer() {
 
   // Change Page
   const handlePageChange = (pageClicked) => {
-    console.log(pageClicked);
     if (pageClicked === 'next' && actualPage < totalPages) {
       setActualPage(actualPage + 1);
     } else if (pageClicked === 'next' && actualPage === totalPages) {
@@ -171,7 +168,7 @@ export default function MenuListContainer() {
         )
       }
 
-      <div className="flex flex-wrap gap-[20px] md:px-[59px] justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px] md:px-[59px]">
         {
           result.length > 0
             ? result.map((item) => <MenuItemCard key={item.id} item={item} />)

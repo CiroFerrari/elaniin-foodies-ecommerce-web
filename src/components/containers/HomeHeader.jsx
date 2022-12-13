@@ -13,14 +13,23 @@ export default function HomeHeader() {
       <header className="w-[343px] md:w-[350px] xl:w-[579px]">
         <h1 className="text-[35px] leading-[35px] md:hidden xl:block md:mt-[25px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[21px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
           Un nuevo sabor esta en
-          <span className="block pl-[4px] md:hidden xl:block bg-[#FFD600] xl:pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] xl:ml-[-13px]">
+          <span className="block relative pl-[4px] md:hidden xl:block xl:pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] xl:ml-[-13px]">
             la ciudad
+          </span>
+          <span className="hidden mt-[-55px] text-[55px] leading-[55px] rotate-[-0.64deg] z-[-10] absolute pl-[4px] md:hidden xl:block bg-[#FFD600] text-[#FFD600] xl:pl-[13px] pr-[31px] w-[fit-content] pb-[2px] xl:ml-[-13px]">
+            la ciiudad
+          </span>
+          <span className="block mt-[-45px] text-[40px] leading-[40px] py-[10px] rotate-[-0.64deg] z-[-10] absolute pl-[4px] md:hidden bg-[#FFD600] text-[#FFD600] xl:pl-[13px] pr-[31px] w-[fit-content] pb-[2px] xl:ml-[-13px]">
+            la ciiiiid
           </span>
         </h1>
         <h1 className="hidden md:block xl:hidden md:mt-[25px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[21px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
           Un nuevo sabor esta
-          <span className="hidden md:block whitespace-nowrap bg-[#FFD600] pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] ml-[-13px]">
+          <span className="hidden relative md:block whitespace-nowrap pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] ml-[-13px]">
             en la ciudad
+          </span>
+          <span className="hidden md:block mt-[-47.5px] ml-[-5px] text-[60px] leading-[60px] rotate-[-0.64deg] z-[-10] absolute whitespace-nowrap bg-[#FFD600] text-[#FFD600] pl-[13px] pr-[31px] w-[fit-content] pb-[2px] ">
+            en laiiiii
           </span>
         </h1>
         <p className="max-w-[310px] mb-[32px] font-Open-Sans font-normal md:text-[16px] md:leading-[22px] md:max-w-[298px] xl:text-[18px] xl:leading-[25px] opacity-40 md:mb-[46px]">Estamos a punto de descubrir un mundo lleno de sabores y de emociones inigualables</p>

@@ -5,7 +5,6 @@ export default function MenuFilterMobile(props) {
   const {
     categories, setShowMobileFilter, handleCategoryFilter, actualCategory,
   } = props;
-  console.log(categories);
   return (
     <section
       className="relative bg-[#000] rounded-b-[30px] z-100 mt-[-40px] pt-[47px] pl-[17px] pb-[63px] mb-[40px]"

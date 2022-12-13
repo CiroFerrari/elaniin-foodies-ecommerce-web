@@ -59,7 +59,7 @@ label:has(input#name:focus-visible), label:has(input#email:focus-visible), label
     }
     .menu-header {
         background-image: url('./images/menuHero/menuHeroBackground.png');
-        background-position-x: right;
+        background-position-x: 175%;
         background-size: contain;
         background-position-y: 0px;
     }

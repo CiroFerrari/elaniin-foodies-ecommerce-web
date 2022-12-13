@@ -40,7 +40,6 @@ export default function HomeContact() {
       message,
     };
     axios.request(options).then((response) => {
-      console.log(response);
       setName('');
       setEmail('');
       setMessage('');
