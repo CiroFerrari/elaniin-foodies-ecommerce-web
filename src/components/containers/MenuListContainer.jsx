@@ -125,7 +125,7 @@ export default function MenuListContainer() {
   return (
     <section className="pt-[25px] px-[16px] md:pt-[80px] md:px-[44px] xl:px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
       <div className="flex justify-center md:flex-col md:items-center xl:flex-row xl:justify-start mb-[40px] md:mb-[90px] xl:mb-[96px]">
-        <label htmlFor="search" className="md:mb-[30px] xl:mb-[0px] xl:md-[0px] flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[467px] xl:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[43px] max-w-[467px]">
+        <label htmlFor="search" className="md:mb-[30px] xl:mb-[0px] xl:md-[0px] flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[467px] xl:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[0px] xl:mr-[43px] max-w-[467px]">
           <img src={searchImg} alt="Search" />
           <input
             id="search"

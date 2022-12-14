@@ -17,7 +17,7 @@ export default function HomeHeader() {
     setAnimationTypeBottom(animationIndex + 1);
   };
   return (
-    <section className="home-header ml-[9px] md:ml-[0px] bg-contain bg-no-repeat md:bg-right bg-right-top pt-[121px] flex flex-col-reverse md:flex-row items-center  md:justify-between md:pt-[127px] md:pb-[160px] md:pl-[53px] md:pr-[30px] xl:mt-[0px] xl:pt-[132px] xl:pb-[220px] xl:pl-[101px] xl:pr-[94px] max-w-[1500px] mx-auto">
+    <section className="home-header ml-[9px] md:ml-[0px] xl:ml-auto bg-contain bg-no-repeat md:bg-right bg-right-top pt-[121px] flex flex-col-reverse md:flex-row items-center  md:justify-between md:pt-[127px] md:pb-[160px] md:pl-[53px] md:pr-[30px] xl:mt-[0px] xl:pt-[132px] xl:pb-[220px] xl:pl-[101px] xl:pr-[94px] max-w-[1500px] mx-auto">
       <header className="w-[343px] md:w-[350px] xl:w-[579px]">
         <MovingComponent
           onAnimationEnd={handleChainAnimation}

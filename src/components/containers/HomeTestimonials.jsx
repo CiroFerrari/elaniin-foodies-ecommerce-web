@@ -61,7 +61,7 @@ export default function Testimonials() {
     }
   };
   return (
-    <section ref={ref} className="flex justify-center items-start px-[16px] md:px-[0px] mt-[55px] md:h-[633px] xl:justify-between md:mt-[9px] xl:mt-[50px] max-w-[1500px] mx-auto">
+    <section ref={ref} className="relative flex justify-center items-start px-[16px] md:px-[0px] mt-[55px] md:h-[633px] xl:justify-between md:mt-[9px] xl:mt-[50px] max-w-[1500px] mx-auto">
       <img src={TestimonialsImgLeft} alt="Red Art" className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[27px]" />
       {
         isVisible
@@ -99,8 +99,8 @@ export default function Testimonials() {
           </MovingComponent>
         )
       }
-      <img src={TestimonialsImgKetchup} alt="Ketchup" className="hidden xl:block absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
-      <img src={TestimonialsImgRight} alt="Ketchup" className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
+      <img src={TestimonialsImgKetchup} alt="Ketchup" className="ketchup-img hidden xl:block absolute right-0 w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
+      <img src={TestimonialsImgRight} alt="Ketchup Stain" className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
     </section>
   );
 }

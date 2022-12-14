@@ -44,7 +44,7 @@ export default function NavBarTailwindUI() {
     <Disclosure as="nav" className="rounded-b-[30px] absolute w-[100%] z-20">
       {({ open }) => (
         <>
-          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:pl-[0px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]`}>
+          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:pl-[0px] lg:ml-[53px] lg:pt-[0px] lg:mt-[57px] xl:max-w-[1500px] xl:pl-[101px] xl:mx-auto`}>
             <div className="absolute right-0 flex items-center lg:hidden">
               {/* Mobile menu button */}
               <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
@@ -87,7 +87,7 @@ export default function NavBarTailwindUI() {
           </div>
 
           <Disclosure.Panel className="lg:hidden bg-[#f8f8f8] z-20 lg:mb-[75px] rounded-b-[30px]">
-            <div className="space-y-1 px-2 pt-2 pb-3 rounded-[30px] shadow-lg shadow-grey-50">
+            <div className="space-y-1 px-2 pt-2 pb-3 rounded-[30px] shadow-lg shadow-grey-50 md:pl-[53px]">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
