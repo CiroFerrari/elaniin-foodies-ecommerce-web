@@ -37,7 +37,9 @@ export default function NavBarTailwindUI() {
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
-    setOpenMobile(!openMobile);
+    if ((page !== 'home') || (page === 'home' && openMobile)) {
+      setOpenMobile(!openMobile);
+    }
     setActualPage(page);
   };
   return (
@@ -58,7 +60,7 @@ export default function NavBarTailwindUI() {
         <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
           <Link
             to="/"
-            className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} ${(colorText === 'text-white') ? 'hover:text-[#ffffff90]' : 'hover:text-[#00000075]'}`}
+            className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} ${(colorText === 'text-white') ? 'lg:hover:text-[#ffffff90]' : 'lg:hover:text-[#00000075]'}`}
             onClick={() => handlePageChange('home')}
           >
             Foodies
