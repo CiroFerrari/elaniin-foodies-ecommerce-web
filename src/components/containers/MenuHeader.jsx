@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MovingComponent from 'react-moving-text';
-import menuHeroHamburguer from '../../images/menuHero/menuHeroHamburger.png';
+import menuHeroHamburguer from '../../images/menuHero/menuHeroHamburger.webp';
 
 const AnimationsForChaining = ['slideInFromRight'];
 

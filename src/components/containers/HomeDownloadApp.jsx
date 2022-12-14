@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
-import DownloadAppImg from '../../images/homeDownloadApp/app-image.png';
+import DownloadAppImg from '../../images/homeDownloadApp/app-image.webp';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import Vector2 from '../../images/homeDownloadApp/vector-2.png';
@@ -30,7 +30,7 @@ export default function DownloadApp() {
             <MovingComponent
               onAnimationEnd={handleChainAnimation}
               type={animationType}
-              duration="2000ms"
+              duration="1000ms"
               timing="linear"
               fillMode="forwards"
               iteration={1}

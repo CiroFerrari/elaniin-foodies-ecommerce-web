@@ -75,7 +75,7 @@ export default function HomeContact() {
                 <MovingComponent
                   onAnimationEnd={handleChainAnimation}
                   type={animationType}
-                  duration="2000ms"
+                  duration="1000ms"
                   timing="linear"
                   fillMode="forwards"
                   iteration={1}

@@ -3,7 +3,7 @@ import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
 import TestimonialsImgLeft from '../../images/homeTestimonials/testimonials-left.png';
 import TestimonialsImgRight from '../../images/homeTestimonials/testimonials-right.png';
-import TestimonialsImgKetchup from '../../images/homeTestimonials/testimonials-ketchup.png';
+import TestimonialsImgKetchup from '../../images/homeTestimonials/testimonials-ketchup.webp';
 import ArrowPrev from '../../images/homeTestimonials/arrow-prev.svg';
 import ArrowNext from '../../images/homeTestimonials/arrow-next.svg';
 
@@ -69,7 +69,7 @@ export default function Testimonials() {
           <MovingComponent
             onAnimationEnd={handleChainAnimation}
             type={animationType}
-            duration="2000ms"
+            duration="1000ms"
             timing="linear"
             fillMode="forwards"
             iteration={1}

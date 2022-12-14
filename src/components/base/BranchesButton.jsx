@@ -14,7 +14,7 @@ export default function BranchesButton(props) {
   const {
     name, image, active, onClick,
   } = props;
-  if ( !name || !image || !active || !onClick ) {
+  if (!name || !image || !active || !onClick) {
     return null;
   }
   let backgroundClass;

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
-import HeroAboutImg from '../../images/homeAbout/home-about.png';
+import HeroAboutImg from '../../images/homeAbout/home-about.webp';
 import HeroAboutBackground from '../../images/homeAbout/home-about-background.png';
 import CtaButton from '../base/CtaButton';
 
@@ -38,7 +38,7 @@ export default function HomeAbout() {
             <MovingComponent
               onAnimationEnd={handleChainAnimation}
               type={animationType}
-              duration="2000ms"
+              duration="1000ms"
               timing="linear"
               fillMode="forwards"
               iteration={1}
