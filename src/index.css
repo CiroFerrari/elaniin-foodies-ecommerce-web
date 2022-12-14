@@ -53,6 +53,21 @@ label:has(input#name:focus-visible), label:has(input#email:focus-visible), label
     background-position-y: -330px;
 }
 
+@media(max-width: 350px) {
+    section.home-header header {
+        max-width: 90vw;
+    }
+    section#homeContact input {
+        width: 90vw;
+    }
+}
+
+@media(min-width: 534px) and (max-width: 767px) {
+    .downloadApp-span {
+        margin-top: -40px;
+    }
+}
+
 @media(min-width: 768px) {
     .home-header {
         background-image: url('./images/heroImages/hero-background-md.png');
@@ -71,5 +86,12 @@ label:has(input#name:focus-visible), label:has(input#email:focus-visible), label
     }
     .menu-header {
         background-position-x: 100%;
+    }
+}
+
+@media(min-width: 1500px) {
+    .ketchup-img {
+        position: absolute;
+        margin-right: 0px;
     }
 }

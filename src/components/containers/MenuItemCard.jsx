@@ -20,8 +20,8 @@ export default function MenuItemCard({ item }) {
     title, description, price, image, categories,
   } = item;
   return (
-    <article ref={ref} className="mx-auto h-[fit-content] group flex flex-col pb-[9px] mb-[48px] md:mb-[70px] hover:pb-[29px] hover:bg-white rounded-[10px] hover:shadow-lg hover:shadow-[rgba(56, 81, 114, 0.2)]">
-      <img src={image} alt={title} className=" h-[264px] rounded-[10px] object-cover mb-[14px] group-hover:h-[287px]" />
+    <article ref={ref} className="max-w-[440px] mx-auto h-[fit-content] group flex flex-col pb-[9px] mb-[48px] md:mb-[70px] hover:pb-[29px] hover:bg-white rounded-[10px] hover:shadow-lg hover:shadow-[rgba(56, 81, 114, 0.2)]">
+      <img src={image} alt={title} className="h-[264px] rounded-[10px] object-cover mb-[14px] group-hover:h-[287px]" />
       {
         isVisible
         && (

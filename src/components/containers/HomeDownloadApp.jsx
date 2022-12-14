@@ -23,7 +23,7 @@ export default function DownloadApp() {
   return (
     <>
       <section ref={ref} className="overflow-hidden flex flex-col items-center justify-center xl:flex-row xl:justify-start mt-[-227px] md:mt-[-202.5px] xl:mt-[-112px] max-w-[1500px] mx-auto">
-        <img src={DownloadAppImg} alt="Foodies App" className="w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:ml-[135px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />
+        <img src={DownloadAppImg} alt="Foodies App" className="2xl:ml-[-100px] w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:ml-[135px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />
         {
           isVisible
           && (
@@ -36,12 +36,12 @@ export default function DownloadApp() {
               iteration={1}
               className=""
             >
-              <article className="relative md:mt-[-60px] xl:mt-[0px] px-[16px] md:px-[0px] xl:pt-[200px] xl:ml-[-26vw] 2xl:ml-[-390px] xl:gap-[50px] flex flex-col items-center">
+              <article className="relative md:mt-[-60px] xl:mt-[0px] px-[16px] md:px-[0px] xl:pt-[200px] xl:ml-[-26vw] 2xl:ml-[-390px] xl:gap-[50px] flex flex-col items-center 2xl:min-w-[690px]">
                 <h3 className="z-10 font-Druk-Text-Wide font-bold mt-[-50px] md:mt-[0px] px-[16px] md:px-[0px] text-[30px] leading-[38px] md:text-[35px] md:leading-[35px] text-center mb-[63px] md:mb-[57px]">
                   Obten mas beneficios
                   <span className="relative block md:p-[11px] pl-[5px] z-10">
                     Descarga nuestra App
-                    <span className="bg-[#FFD600] text-[#FFD600] block absolute z-[-10] mt-[-76px] rotate-[-0.64deg] md:py-[15px] md:mt-[-50px]">Descarga nuestra App</span>
+                    <span className="downloadApp-span bg-[#FFD600] text-[#FFD600] block absolute z-[-10] mt-[-76px] rotate-[-0.64deg] md:py-[15px] md:mt-[-50px]">Descarga nuestra App</span>
                   </span>
                 </h3>
                 <div className="flex flex-col md:flex-row gap-[67px] md:gap-[50px]">
