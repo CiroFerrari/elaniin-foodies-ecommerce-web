@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import MovingComponent from 'react-moving-text';
+import useOnScreen from '../../hooks/useOnScreen';
 import ContactInput from '../base/ContactInput';
 import HomeContactOk from './HomeContactOk';
+
+const AnimationsForChaining = ['slideInFromTop'];
 
 const options = {
   method: 'POST',
@@ -15,6 +19,16 @@ const options = {
 };
 
 export default function HomeContact() {
+  const ref = useRef();
+  const isVisible = useOnScreen(ref);
+
+  const [animationIndex, setAnimationIndex] = useState(0);
+  const [animationType, setAnimationType] = useState(AnimationsForChaining[0]);
+
+  const handleChainAnimation = () => {
+    setAnimationIndex(animationIndex + 1);
+    setAnimationType(animationIndex + 1);
+  };
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
@@ -54,12 +68,26 @@ export default function HomeContact() {
         <HomeContactOk />
       ) : (
         <section id="homeContact" className="bg-black pt-[73px] md:pt-[112px] md:pb-[378px] xl:pb-[112px] z-0 md:mt-[-60px] flex flex-col justify-center items-center pb-[358px]">
-          <div className="flex flex-col justify-center items-center max-w-[1500px] mx-auto px-[16px]">
-            <h3 className="text-center font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[36px] md:leading-[36px] text-white mb-[20px] md:mb-[17px]">Cuentanos tu experiencia</h3>
-            <p className="text-white text-center font-Open-Sans font-normal text-[18px] leading-[24px] md:text-[24px] md:leading-[33px] md:w-[554px] xl:w-[46vw] xl:max-w-[698px] mb-[39px] md:mb-[40px]">
-              Don&apos;t miss out on our great offers & Receive deals from all our
-              top restaurants via e-mail.
-            </p>
+          <div ref={ref} className="flex flex-col justify-center items-center max-w-[1500px] mx-auto px-[16px]">
+            {
+              isVisible
+              && (
+                <MovingComponent
+                  onAnimationEnd={handleChainAnimation}
+                  type={animationType}
+                  duration="2000ms"
+                  timing="linear"
+                  fillMode="forwards"
+                  iteration={1}
+                >
+                  <h3 className="text-center font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[36px] md:leading-[36px] text-white mb-[20px] md:mb-[17px]">Cuentanos tu experiencia</h3>
+                  <p className="text-white text-center font-Open-Sans font-normal text-[18px] leading-[24px] md:text-[24px] md:leading-[33px] md:w-[554px] xl:w-[46vw] xl:max-w-[698px] mb-[39px] md:mb-[40px]">
+                    Don&apos;t miss out on our great offers & Receive deals from all our
+                    top restaurants via e-mail.
+                  </p>
+                </MovingComponent>
+              )
+            }
             <form onSubmit={handleSubmit} className="flex flex-col gap-[40px] md:gap-[23px]">
               <div className="flex flex-col xl:flex-row gap-[10px] md:gap-[50px]">
                 <div className="flex flex-col gap-[10px]">
@@ -91,7 +119,7 @@ export default function HomeContact() {
                   />
                 </label>
               </div>
-              <button type="submit" className="bg-[#FFD600] ml-[55px] md:ml-[0px] md:self-center w-[220px] md:mt-[34px] rounded-[4px] py-[14px] px-[20px] xl:self-end font-Open-Sans font-bold text-[16px] leading-[22px] xl:w-[196px]">Enviar comentarios</button>
+              <button type="submit" className="bg-[#FFD600] ml-[55px] md:ml-[0px] md:self-center w-[220px] md:mt-[34px] rounded-[4px] py-[14px] px-[20px] xl:self-end font-Open-Sans font-bold text-[16px] leading-[22px] xl:w-[196px] hover:bg-[#FFD60095]">Enviar comentarios</button>
             </form>
           </div>
         </section>

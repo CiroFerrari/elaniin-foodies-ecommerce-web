@@ -9,24 +9,21 @@ const navigation = [
   { name: 'Contáctanos', to: '/contactanos', current: false },
 ];
 
-const homeTextColor = {
-  color: 'black',
-};
+const homeTextColor = 'text-black';
 
-const menuTextColor = {
-  color: 'white',
-};
+const menuTextColor = 'text-white';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function NavBarDeprecated() {
-  const [colorText, setColorText] = useState();
+  const [colorText, setColorText] = useState('');
   const [bgNav, setBgNav] = useState();
   const [openMobile, setOpenMobile] = useState(false);
   const location = useLocation();
   const [actualPage, setActualPage] = useState('home');
+
   useEffect(() => {
     if (location.pathname === '/menu' && !openMobile) {
       setColorText(menuTextColor);
@@ -38,6 +35,7 @@ export default function NavBarDeprecated() {
     } else {
       setBgNav('bg-transparent');
     }
+    console.log(colorText);
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
@@ -47,7 +45,7 @@ export default function NavBarDeprecated() {
     <Disclosure as="nav" className="rounded-b-[30px] absolute w-[100%] z-20">
       {({ open }) => (
         <>
-          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]`}>
+          <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:pl-[0px] lg:ml-[101px] lg:pt-[0px] lg:mt-[57px]`}>
             <div className="absolute right-0 flex items-center lg:hidden">
               {/* Mobile menu button */}
               <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
@@ -63,8 +61,7 @@ export default function NavBarDeprecated() {
             <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
               <Link
                 to="/"
-                className="font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide"
-                style={colorText}
+                className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} hover:text-[#00000050]`}
                 onClick={() => handlePageChange('home')}
               >
                 Foodies
@@ -75,10 +72,9 @@ export default function NavBarDeprecated() {
                     <Link
                       key={item.name}
                       to={item.to}
-                      style={colorText}
                       onClick={() => handlePageChange(item.name)}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-black' : 'lg:text-[18px] lg:leading-[22px] lg:font-Syne lg:font-bold text-black',
+                        item.current ? '' : `lg:text-[18px] lg:leading-[22px] lg:font-Syne lg:font-bold ${colorText} ${(colorText === 'text-white') ? 'hover:text-[#ffffff90]' : 'hover:text-[#00000075]'}`,
                         `${(actualPage === item.name) && 'underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]'}`,
                       )}
                       aria-current={item.current ? 'page' : undefined}
@@ -98,7 +94,7 @@ export default function NavBarDeprecated() {
                   key={item.name}
                   className={classNames(
                     item.current ? 'font-Syne font-bold text-[25px] leading-[30px] underline underline-offset-[1px] decoration-[#FFD600] decoration-[6px]' : 'text-black font-Syne font-bold text-[25px] leading-[30px]',
-                    'block px-3 py-2 text-base font-medium',
+                    'block px-3 py-2 text-base font-medium hover:text-[#00000050]',
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >

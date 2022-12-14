@@ -12,7 +12,7 @@ export default function CtaButton(props) {
     <button
       onClick={navigateTo}
       type="button"
-      className="flex font-Syne font-bold text-[22px] leading-[26px] gap-[12px] items-center"
+      className="flex font-Syne font-bold text-[22px] leading-[26px] gap-[12px] items-center hover:text-[#00000050]"
     >
       {name}
       <img src={arrowRight} alt="Arrow right" />

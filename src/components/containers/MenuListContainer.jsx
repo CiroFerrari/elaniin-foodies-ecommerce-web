@@ -136,15 +136,17 @@ export default function MenuListContainer() {
           />
         </label>
         {
+          // Render Category Buttons in Desktop
           categories.length > 0
           && (
             <div className="hidden lg:flex items-center">
-              <button type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] ${(actualCategory === 'Todas') && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter('Todas')}>Todas</button>
-              {categories.map((item) => <button key={item.id} type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] ${(actualCategory === item.name) && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter(item.id, item.name)}>{item.name}</button>)}
+              <button type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === 'Todas') && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter('Todas')}>Todas</button>
+              {categories.map((item) => <button key={item.id} type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === item.name) && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter(item.id, item.name)}>{item.name}</button>)}
             </div>
           )
         }
         {
+          // Render Category Filter Button in Mobile
           categories.length > 0
           && (
             <button
@@ -157,6 +159,7 @@ export default function MenuListContainer() {
         }
       </div>
       {
+        // Render Category Buttons in Mobile
         showMobileFilter
         && (
           <MenuFilterMobile
@@ -181,9 +184,9 @@ export default function MenuListContainer() {
         && (
           <div className="mt-[58px] md:mt-[70px] flex justify-center gap-[10px] flex-wrap">
             {
-              pagesButtons.map((item) => <button key={item} type="button" className={`py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px] ${(actualPage === item) && 'bg-black text-[#FFD600]'}`} onClick={() => handlePageChange(item)}>{item}</button>)
+              pagesButtons.map((item) => <button key={item} type="button" className={`py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px] hover:border-none hover:text-black hover:bg-[#00000025] ${(actualPage === item) && 'bg-black text-[#FFD600]'}`} onClick={() => handlePageChange(item)}>{item}</button>)
             }
-            <button type="button" className="bg-[#FFF1BF] py-[10px] px-[18px] rounded-[10px]" onClick={() => handlePageChange('next')}>Siguiente</button>
+            <button type="button" className="bg-[#FFF1BF] py-[10px] px-[18px] rounded-[10px] hover:opacity-50" onClick={() => handlePageChange('next')}>Siguiente</button>
           </div>
         )
       }
@@ -191,8 +194,8 @@ export default function MenuListContainer() {
       <div className="flex flex-col gap-[18px] md:gap-[0px] md:flex-row items-center justify-between px-[8vw] mb-[20px] md:mb-[50px] mt-[70px]">
         <p className="font-bold text-[24px] leading-[24px] md:mr-[86px] font-Druk-Text-Wide md:self-end text-[#00000080]">Foodies</p>
         <div className="flex gap-[10px]">
-          <img src={AppStoreImg} alt="App Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
-          <img src={PlayStoreImg} alt="Play Store" className="max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
+          <img src={AppStoreImg} alt="App Store" className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
+          <img src={PlayStoreImg} alt="Play Store" className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[184px] md:max-h-[54px]" />
         </div>
       </div>
       <hr className="md:hidden mx-[4vw] mt-[20px] md:mt-[29px] border-b-[1px] border-b-solid border-b-[#FFC700]" />
