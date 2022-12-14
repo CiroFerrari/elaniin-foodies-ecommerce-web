@@ -1,3 +1,7 @@
+# Link to the project in Vercel
+
+https://elaniin-foodies-ecommerce-web-vercel.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
