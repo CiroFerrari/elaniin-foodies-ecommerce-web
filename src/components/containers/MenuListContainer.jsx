@@ -123,9 +123,9 @@ export default function MenuListContainer() {
   };
 
   return (
-    <section className="pt-[25px] px-[16px] md:pt-[80px] md:px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
-      <div className="flex justify-center md:justify-start mb-[40px] md:mb-[96px]">
-        <label htmlFor="search" className="flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[43px] max-w-[467px]">
+    <section className="pt-[25px] px-[16px] md:pt-[80px] md:px-[44px] xl:px-[60px] bg-[#f8f8f8] max-w-[1500px] mx-auto" id="box">
+      <div className="flex justify-center md:flex-col md:items-center xl:flex-row xl:justify-start mb-[40px] md:mb-[90px] xl:mb-[96px]">
+        <label htmlFor="search" className="md:mb-[30px] xl:mb-[0px] xl:md-[0px] flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[467px] xl:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[43px] max-w-[467px]">
           <img src={searchImg} alt="Search" />
           <input
             id="search"
@@ -140,9 +140,9 @@ export default function MenuListContainer() {
           // Render Category Buttons in Desktop
           categories.length > 0
           && (
-            <div className="hidden lg:flex items-center">
-              <button type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === 'Todas') && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter('Todas')}>Todas</button>
-              {categories.map((item) => <button key={item.id} type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === item.name) && 'underline underline-offset-[-0px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter(item.id, item.name)}>{item.name}</button>)}
+            <div className="hidden md:flex md:mr-[-40px] items-center">
+              <button type="button" className={`mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === 'Todas') && 'underline underline-offset-[2px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter('Todas')}>Todas</button>
+              {categories.map((item) => <button key={item.id} type="button" className={`md:whitespace-nowrap mr-[40px] font-Syne font-bold text-[18px] leading-[22px] hover:text-[#00000050] ${(actualCategory === item.name) && 'underline underline-offset-[2px] decoration-[#FFD600] decoration-[6px]'}`} onClick={() => handleCategoryFilter(item.id, item.name)}>{item.name}</button>)}
             </div>
           )
         }
@@ -154,7 +154,7 @@ export default function MenuListContainer() {
               type="button"
               onClick={() => setShowMobileFilter(!showMobileFilter)}
             >
-              <img src={FilterImg} alt="Filter" className="lg:hidden" />
+              <img src={FilterImg} alt="Filter" className="md:hidden" />
             </button>
           )
         }
@@ -171,8 +171,8 @@ export default function MenuListContainer() {
           />
         )
       }
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px] md:px-[59px]">
+      {/* Render Item Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-[20px] md:px-[59px]">
         {
           result.length > 0
             ? result.map((item) => <MenuItemCard key={item.id} item={item} />)
@@ -181,9 +181,10 @@ export default function MenuListContainer() {
       </div>
 
       {
+        // Render Pagination Buttons
         result.length > 0
         && (
-          <div className="mt-[58px] md:mt-[70px] flex justify-center gap-[10px] flex-wrap">
+          <div className="xl:mt-[70px] flex justify-center gap-[10px] flex-wrap">
             {
               pagesButtons.map((item) => <button key={item} type="button" className={`py-[10px] px-[18px] border-solid border-[1px] border-gray rounded-[10px] hover:border-none hover:text-black hover:bg-[#00000025] ${(actualPage === item) && 'bg-black text-[#FFD600]'}`} onClick={() => handlePageChange(item)}>{item}</button>)
             }

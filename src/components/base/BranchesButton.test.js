@@ -12,6 +12,11 @@ const {
   name, image, active, onClick,
 } = props;
 
+it('Should not render BranchesButton component without props', () => {
+  render(<BranchesButton />);
+  expect(screen.queryByTestId('BranchesButton-test')).not.toBeInTheDocument();
+});
+
 it('Should render CtaButton component', () => {
   render(<BranchesButton name={name} image={image} active={active} onClick={onClick} />);
   const BranchesButtonElement = screen.getByTestId('BranchesButton-test');

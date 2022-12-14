@@ -18,7 +18,7 @@ export default function MenuHeader() {
     setAnimationType(animationIndex + 1);
   };
   return (
-    <section className="menu-header mt-[0px] flex flex-col-reverse md:flex-row md:pl-[53px] md:pb-[90px] justify-between bg-black md:pt-[132px] lg:pl-[101px] lg:pr-[94px] max-w-[1500px] mx-auto xl:mt-[-60px]" style={menuHeroBackground}>
+    <section className="menu-header mt-[0px] flex flex-col-reverse md:flex-row md:pl-[53px] md:pb-[90px] xl:pb-[0px] justify-between bg-black md:pt-[72px] xl:pt-[132px] lg:pl-[101px] lg:pr-[94px] max-w-[1500px] mx-auto xl:mt-[-60px]" style={menuHeroBackground}>
       <header className="max-w-[343px] md:max-w-[360px] lg:max-w-[579px] self-center mb-[106px] md:mb-[0px]">
         <MovingComponent
           onAnimationEnd={handleChainAnimation}

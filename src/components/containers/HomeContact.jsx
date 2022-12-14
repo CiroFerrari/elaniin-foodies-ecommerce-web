@@ -67,7 +67,7 @@ export default function HomeContact() {
       ? (
         <HomeContactOk />
       ) : (
-        <section id="homeContact" className="bg-black pt-[73px] md:pt-[112px] md:pb-[378px] xl:pb-[112px] z-0 md:mt-[-60px] flex flex-col justify-center items-center pb-[358px]">
+        <section id="homeContact" className="bg-black pt-[73px] md:pt-[112px] md:pb-[293px] xl:pb-[112px] z-0 md:mt-[-60px] flex flex-col justify-center items-center pb-[358px]">
           <div ref={ref} className="flex flex-col justify-center items-center max-w-[1500px] mx-auto px-[16px]">
             {
               isVisible
@@ -81,7 +81,7 @@ export default function HomeContact() {
                   iteration={1}
                 >
                   <h3 className="text-center font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[36px] md:leading-[36px] text-white mb-[20px] md:mb-[17px]">Cuentanos tu experiencia</h3>
-                  <p className="text-white text-center font-Open-Sans font-normal text-[18px] leading-[24px] md:text-[24px] md:leading-[33px] md:w-[554px] xl:w-[46vw] xl:max-w-[698px] mb-[39px] md:mb-[40px]">
+                  <p className="text-white text-center font-Open-Sans font-normal text-[18px] leading-[24px] md:text-[24px] md:leading-[33px] md:w-[554px] xl:w-[47vw] xl:max-w-[698px] mb-[39px] md:mb-[40px]">
                     Don&apos;t miss out on our great offers & Receive deals from all our
                     top restaurants via e-mail.
                   </p>
