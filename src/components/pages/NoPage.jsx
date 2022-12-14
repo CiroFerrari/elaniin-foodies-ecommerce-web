@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ErrorImg from '../../images/emptyStates/error-search.png';
 
 export default function NoPage() {
+  useEffect(() => {
+    document.title = 'Foodies';
+  }, []);
   return (
     <section className="grow flex flex-col justify-center items-center min-h-[89vh]">
       <img src={ErrorImg} alt="Error search" className="max-w-[216px]" />
