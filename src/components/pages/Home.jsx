@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import BranchesContainer from '../containers/HomeBranchesContainer';
-import DownloadApp from '../containers/HomeDownloadApp';
+import React, { useEffect, Suspense } from 'react';
 import HomeAbout from '../containers/HomeAbout';
-import HomeContact from '../containers/HomeContact';
 import HomeHeader from '../containers/HomeHeader';
-import Testimonials from '../containers/HomeTestimonials';
+
+const BranchesContainer = React.lazy(() => import('../containers/HomeBranchesContainer'));
+const Testimonials = React.lazy(() => import('../containers/HomeTestimonials'));
+const HomeContact = React.lazy(() => import('../containers/HomeContact'));
+const DownloadApp = React.lazy(() => import('../containers/HomeDownloadApp'));
 
 export default function Home() {
   useEffect(() => {
@@ -14,10 +15,12 @@ export default function Home() {
     <>
       <HomeHeader />
       <HomeAbout />
-      <BranchesContainer />
-      <Testimonials />
-      <HomeContact />
-      <DownloadApp />
+      <Suspense>
+        <BranchesContainer />
+        <Testimonials />
+        <HomeContact />
+        <DownloadApp />
+      </Suspense>
     </>
   );
 }
