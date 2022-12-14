@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import axios from 'axios';
 import useOnScreen from '../../hooks/useOnScreen';
-import ElSalvadorMap from '../../images/homeBranches/branches-map.png';
+import ElSalvadorMap from '../../images/homeBranches/branches-map.webp';
 import BranchesButton from '../base/BranchesButton';
 import SearchInput from '../../images/homeBranches/branches-search.svg';
 import TakeAwayImg from '../../images/homeBranches/branches-takeaway.svg';
@@ -114,7 +114,7 @@ export default function BranchesContainer() {
             <MovingComponent
               onAnimationEnd={handleChainAnimation}
               type={animationType}
-              duration="2000ms"
+              duration="1000ms"
               timing="linear"
               fillMode="forwards"
               iteration={1}

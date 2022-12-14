@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MovingComponent from 'react-moving-text';
-import heroHamburguer from '../../images/heroImages/hero-hamburger.png';
+import heroHamburguer from '../../images/heroImages/hero-hamburger.webp';
 import CtaButton from '../base/CtaButton';
 
 const AnimationsForChaining = ['slideInFromRight'];
