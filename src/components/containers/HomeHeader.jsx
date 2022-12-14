@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MovingComponent from 'react-moving-text';
 import heroHamburguer from '../../images/heroImages/hero-hamburger.webp';
+import heroHamburguerMobile from '../../images/heroImages/hero-hamburger-mobile.webp';
 import CtaButton from '../base/CtaButton';
 
 const AnimationsForChaining = ['slideInFromRight'];
@@ -61,7 +62,8 @@ export default function HomeHeader() {
           <CtaButton name="Encuentranos" navigation="branchesContainer" />
         </MovingComponent>
       </header>
-      <img src={heroHamburguer} alt="Hamburguer" className="w-[83vw] mb-[64px] md:mb-[0px] md:w-[38vw] md:max-w-[312px] md:max-h-[246px] xl:max-w-[567px] xl:max-h-[30vw]" />
+      <img src={heroHamburguerMobile} alt="Hamburguer" className="md:hidden w-[83vw] mb-[64px] md:mb-[0px] md:w-[38vw] md:max-w-[312px] md:max-h-[246px] xl:max-w-[567px] xl:max-h-[30vw]" />
+      <img src={heroHamburguer} alt="Hamburguer" className="hidden md:block w-[83vw] mb-[64px] md:mb-[0px] md:w-[38vw] md:max-w-[312px] md:max-h-[246px] xl:max-w-[567px] xl:max-h-[30vw]" />
     </section>
   );
 }
