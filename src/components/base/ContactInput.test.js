@@ -13,6 +13,11 @@ const {
   description, id, handle, placeholder, value,
 } = props;
 
+it('Should not render ContactInput component without props', () => {
+  render(<ContactInput />);
+  expect(screen.queryByTestId('ContactInput-test')).not.toBeInTheDocument();
+});
+
 it('Should render CtaButton component', () => {
   render(<ContactInput description={description} id={id} handle={handle} placeholder={placeholder} value={value} />);
   const ContactInputElement = screen.getByTestId('ContactInput-test');

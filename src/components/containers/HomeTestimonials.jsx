@@ -99,7 +99,7 @@ export default function Testimonials() {
           </MovingComponent>
         )
       }
-      <img src={TestimonialsImgKetchup} alt="Ketchup" className="hidden xl:block absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] mt-[10px] z-10" />
+      <img src={TestimonialsImgKetchup} alt="Ketchup" className="hidden xl:block absolute right-0 2xl:absolute 2xl:mr-[calc(50%-750px)] w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
       <img src={TestimonialsImgRight} alt="Ketchup" className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
     </section>
   );

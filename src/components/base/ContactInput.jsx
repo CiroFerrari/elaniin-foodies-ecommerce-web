@@ -5,6 +5,9 @@ export default function ContactInput(props) {
   const {
     description, id, handle, placeholder, value,
   } = props;
+  if (!description || !id || !handle || !placeholder || value === undefined) {
+    return null;
+  }
   return (
     <label data-testid="ContactInput-test" htmlFor={`${id}`} className="flex flex-col text-white font-Open-Sans font-normal text-[12px] leading-[16px]">
       {description}

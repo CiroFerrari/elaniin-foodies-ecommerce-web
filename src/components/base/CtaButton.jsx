@@ -4,6 +4,9 @@ import arrowRight from '../../images/heroImages/arrow-right.svg';
 
 export default function CtaButton(props) {
   const { name, navigation } = props;
+  if (!name || !navigation) {
+    return null;
+  }
   const navigateTo = () => {
     const element = document.getElementById(navigation);
     element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
