@@ -10,6 +10,7 @@ export default function CtaButton(props) {
   };
   return (
     <button
+      data-testid="CtaButton-test"
       onClick={navigateTo}
       type="button"
       className="flex font-Syne font-bold text-[22px] leading-[26px] gap-[12px] items-center hover:text-[#00000050]"

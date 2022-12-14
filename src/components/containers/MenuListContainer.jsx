@@ -56,6 +56,7 @@ export default function MenuListContainer() {
 
   const handleCategoryFilter = (category, categoryName) => {
     setSearch('');
+    setActualPage(1);
     if (category === 'Todas') {
       setActualCategory('Todas');
       optionsDishes.params.categories = [];

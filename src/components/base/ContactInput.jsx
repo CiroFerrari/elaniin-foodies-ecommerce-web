@@ -6,7 +6,7 @@ export default function ContactInput(props) {
     description, id, handle, placeholder, value,
   } = props;
   return (
-    <label htmlFor={`${id}`} className="flex flex-col text-white font-Open-Sans font-normal text-[12px] leading-[16px]">
+    <label data-testid="ContactInput-test" htmlFor={`${id}`} className="flex flex-col text-white font-Open-Sans font-normal text-[12px] leading-[16px]">
       {description}
       <input
         required

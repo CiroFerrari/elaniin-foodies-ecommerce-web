@@ -17,7 +17,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function NavBarDeprecated() {
+export default function NavBarTailwindUI() {
   const [colorText, setColorText] = useState('');
   const [bgNav, setBgNav] = useState();
   const [openMobile, setOpenMobile] = useState(false);
@@ -35,7 +35,6 @@ export default function NavBarDeprecated() {
     } else {
       setBgNav('bg-transparent');
     }
-    console.log(colorText);
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
@@ -61,7 +60,7 @@ export default function NavBarDeprecated() {
             <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
               <Link
                 to="/"
-                className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} hover:text-[#00000050]`}
+                className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} ${(colorText === 'text-white') ? 'hover:text-[#ffffff90]' : 'hover:text-[#00000075]'}`}
                 onClick={() => handlePageChange('home')}
               >
                 Foodies
