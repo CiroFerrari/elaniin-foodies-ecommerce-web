@@ -24,6 +24,8 @@ export default function NavBarTailwindUI() {
   const [actualPage, setActualPage] = useState('home');
 
   useEffect(() => {
+    console.log(location.pathname);
+    console.log(openMobile);
     if (location.pathname === '/menu' && !openMobile) {
       setColorText(menuTextColor);
     } else {
@@ -37,7 +39,7 @@ export default function NavBarTailwindUI() {
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
-    if ((page !== 'home') || (page === 'home' && openMobile)) {
+    if ((page !== 'home' && openMobile) || (page === 'home' && openMobile)) {
       setOpenMobile(!openMobile);
     }
     setActualPage(page);
