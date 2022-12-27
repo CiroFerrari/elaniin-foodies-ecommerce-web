@@ -125,9 +125,9 @@ export default function BranchesContainer() {
                 <BranchesButton name="Para llevar" image={TakeAwayImg} active={takeawayActive} onClick={takeaway} />
                 <BranchesButton name="Domicilio" image={DeliveryImg} active={deliveryActive} onClick={delivery} />
               </div>
-              <div className="border-[1px] border-[#C4C4C4] border-solid pl:[19px] md:pb-[16px] p-[12px] flex gap-[15px] md:gap-[30px] md:pl-[7vw] mb-[5px] md:mb-[15px]">
+              <div className="border-[1px] border-[#C4C4C4] border-solid pl:[19px] md:pb-[16px] p-[12px] flex gap-[15px] md:gap-[30px] md:pl-[105px] lg:pl-[7vw] mb-[5px] md:mb-[15px]">
                 <img src={SearchInput} alt="Search" className="h-[16px] md:h-[25px]" />
-                <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[18px] md:leading-[24.5px]" placeholder="Buscar nombre o dirección" value={search} onChange={(event) => handleSearch(event.target.value)} />
+                <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[16px] md:leading-[22px] lg:text-[18px] lg:leading-[24.5px]" placeholder="Buscar nombre o dirección" value={search} onChange={(event) => handleSearch(event.target.value)} />
               </div>
               {
                 locations.length > 0
@@ -152,7 +152,7 @@ export default function BranchesContainer() {
           )
         }
       </div>
-      <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px]" src={ElSalvadorMap} alt="El Salvador map" />
+      <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px] max-h-[457px] object-cover lg:max-h-[none]" src={ElSalvadorMap} alt="El Salvador map" />
     </section>
   );
 }

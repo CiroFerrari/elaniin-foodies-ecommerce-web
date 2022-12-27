@@ -75,7 +75,7 @@ export default function Testimonials() {
             iteration={1}
             className="self-end"
           >
-            <article className="z-10 self-end flex flex-col items-center justify-end pb-[67px] md:pb-[220px] lg:pb-[200px] xl:pb-[180px] md:w-[612px] xl:w-[50vw] xl:max-w-[744px]">
+            <article className="z-10 self-end flex flex-col items-center justify-end pb-[67px] md:pb-[230px] lg:pb-[200px] xl:pb-[180px] md:w-[612px] xl:w-[50vw] xl:max-w-[744px]">
               <h4 className="font-Druk-Text-Wide font-bold text-[20px] leading-[25px] md:text-[30px] md:leading-[38px] xl:text-[36px] xl:leading-[45px] text-center mb-[10px] md:mb-[20px]">
                 &quot;
                 {testimonials[actual - 1].title}

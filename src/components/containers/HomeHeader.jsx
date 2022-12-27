@@ -40,12 +40,12 @@ export default function HomeHeader() {
               la ciiiiid
             </span>
           </h1>
-          <h1 className="hidden md:block xl:hidden md:mt-[25px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[21px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
+          <h1 className="hidden md:block xl:hidden md:mt-[57px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[21px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
             Un nuevo sabor esta
             <span className="hidden relative md:block whitespace-nowrap pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] ml-[-13px]">
               en la ciudad
             </span>
-            <span className="hidden md:block mt-[-47.5px] ml-[-5px] text-[60px] leading-[60px] rotate-[-0.64deg] z-[-10] absolute whitespace-nowrap bg-[#FFD600] text-[#FFD600] pl-[13px] pr-[31px] w-[fit-content] pb-[2px] ">
+            <span className="hidden md:block mt-[-47.5px] ml-[-5px] xl:text-[60px] xl:leading-[60px] md:text-[58px] md:leading-[58px]  rotate-[-0.64deg] z-[-10] absolute whitespace-nowrap bg-[#FFD600] text-[#FFD600] pl-[13px] pr-[31px] w-[fit-content] xl:pb-[2px] md:pb-[0px]">
               en laiiiii
             </span>
           </h1>
@@ -63,7 +63,7 @@ export default function HomeHeader() {
         </MovingComponent>
       </header>
       <img src={heroHamburguerMobile} alt="Hamburguer" className="md:hidden w-[83vw] mb-[64px] md:mb-[0px] md:w-[38vw] md:max-w-[312px] md:max-h-[246px] xl:max-w-[567px] xl:max-h-[30vw]" />
-      <img src={heroHamburguer} alt="Hamburguer" className="hidden md:block w-[83vw] mb-[64px] md:mb-[0px] md:w-[38vw] md:max-w-[312px] md:max-h-[246px] xl:max-w-[567px] xl:max-h-[30vw]" />
+      <img src={heroHamburguer} alt="Hamburguer" className="hidden md:block w-[83vw] mb-[64px] md:mb-[0px] md:w-[41vw] md:max-w-[312px] md:max-h-[246px] lg:w-[38vw] xl:max-w-[567px] xl:max-h-[30vw]" />
     </section>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
 import DownloadAppImg from '../../images/homeDownloadApp/app-image.webp';
+import DownloadAppMDImg from '../../images/homeDownloadApp/app-image-md.png';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import Vector2 from '../../images/homeDownloadApp/vector-2.png';
@@ -22,8 +23,9 @@ export default function DownloadApp() {
   };
   return (
     <>
-      <section ref={ref} className="overflow-hidden flex flex-col items-center justify-center xl:flex-row xl:justify-start mt-[-227px] md:mt-[-202.5px] xl:mt-[-112px] max-w-[1500px] mx-auto">
-        <img src={DownloadAppImg} alt="Foodies App" className="2xl:ml-[-100px] w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:ml-[135px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />
+      <section ref={ref} className="overflow-hidden flex flex-col items-center justify-center xl:flex-row xl:justify-start mt-[-227px] md:mt-[-290px] xl:mt-[-112px] max-w-[1500px] mx-auto">
+        <img src={DownloadAppImg} alt="Foodies App" className="hidden xl:block 2xl:ml-[-100px] w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:max-w-[700px] md:ml-[160px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />
+        <img src={DownloadAppMDImg} alt="Foodies App" className="xl:hidden w-[608px] max-w-[508px] ml-[0px] md:w-[972px] md:max-w-[768px] md:ml-[0px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />
         {
           isVisible
           && (

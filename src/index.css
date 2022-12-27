@@ -31,32 +31,45 @@ input#search:focus-visible {
     outline: none;
 }
 
-input#name:focus-visible, input#email:focus-visible, textarea#message:focus-visible {
+input#name:focus-visible,
+input#email:focus-visible,
+textarea#message:focus-visible {
     border: 1px solid #FFC700;
     color: #FFC700;
 }
 
-input#name:focus-visible::placeholder, input#email:focus-visible::placeholder, textarea#message:focus-visible::placeholder {
+input#name:focus-visible::placeholder,
+input#email:focus-visible::placeholder,
+textarea#message:focus-visible::placeholder {
     color: #FFC700;
 }
 
-label:has(input#name:focus-visible), label:has(input#email:focus-visible), label:has(textarea#message:focus-visible) {
+label:has(input#name:focus-visible),
+label:has(input#email:focus-visible),
+label:has(textarea#message:focus-visible) {
     color: #FFC700;
 }
 
 .home-header {
     background-image: url('./images/heroImages/hero-background-mobile.png');
 }
+
 .menu-header {
     background-image: url('./images/menuHero/menuHeroBackground-mobile.png');
     background-position-x: right;
     background-position-y: -330px;
 }
 
+form div label input:focus-visible,
+form div label textarea:focus-visible {
+    outline: none;
+}
+
 @media(max-width: 350px) {
     section.home-header header {
         max-width: 90vw;
     }
+
     section#homeContact input {
         width: 90vw;
     }
@@ -72,6 +85,7 @@ label:has(input#name:focus-visible), label:has(input#email:focus-visible), label
     .home-header {
         background-image: url('./images/heroImages/hero-background-md.png');
     }
+
     .menu-header {
         background-image: url('./images/menuHero/menuHeroBackground.png');
         background-position-x: 155%;
@@ -84,6 +98,7 @@ label:has(input#name:focus-visible), label:has(input#email:focus-visible), label
     .home-header {
         background-image: url('./images/heroImages/hero-background.png');
     }
+
     .menu-header {
         background-position-x: 100%;
     }
