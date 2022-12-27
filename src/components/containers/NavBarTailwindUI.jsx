@@ -44,10 +44,10 @@ export default function NavBarTailwindUI() {
   };
   return (
     <nav className="rounded-b-[30px] absolute w-[100%] z-20">
-      <div className={`${bgNav} relative flex items-center pt-[47px] px-[16px] md:pl-[53px] lg:pl-[0px] lg:ml-[53px] lg:pt-[0px] lg:mt-[57px] xl:max-w-[1500px] xl:pl-[101px] xl:mx-auto`}>
-        <div className="absolute right-0 flex items-center lg:hidden">
+      <div className={`${bgNav} relative flex items-center pt-[47px] md:pt-[30px] px-[16px] md:pl-[40px] lg:pl-[0px] lg:ml-[53px] lg:pt-[0px] lg:mt-[57px] xl:max-w-[1500px] xl:pl-[101px] xl:mx-auto`}>
+        <div className="absolute right-0 md:right-[40px] flex items-center lg:hidden">
           {/* Mobile menu button */}
-          <button type="button" className="inline-flex items-center justify-center p-2 text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
+          <button type="button" className="inline-flex items-center justify-center text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
             <span className="sr-only">Open main menu</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="block h-6 w-6" aria-hidden="true" fill="black" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black">
               {(openMobile) ? (
