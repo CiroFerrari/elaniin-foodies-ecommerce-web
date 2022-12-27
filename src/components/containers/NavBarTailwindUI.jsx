@@ -24,8 +24,6 @@ export default function NavBarTailwindUI() {
   const [actualPage, setActualPage] = useState('home');
 
   useEffect(() => {
-    console.log(location.pathname);
-    console.log(openMobile);
     if (location.pathname === '/menu' && !openMobile) {
       setColorText(menuTextColor);
     } else {

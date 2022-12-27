@@ -42,8 +42,7 @@ export default function MenuItemCard({ item }) {
               }
               <p className="bg-[#FFD600] ml-auto rounded-[8px] px-[10px] py-[6px] font-Druk-Text-Wide font-bold text-[16px] leading-[16px]">
                 $
-                {price}
-                .00
+                {price.toFixed(2)}
               </p>
             </div>
           </MovingComponent>
