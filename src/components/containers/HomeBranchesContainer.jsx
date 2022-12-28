@@ -14,14 +14,14 @@ const AnimationsForChaining = ['slideInFromTop'];
 
 const optionsTakeout = {
   method: 'GET',
-  url: 'https://api.foodies.elaniin.dev/locations',
+  url: process.env.REACT_APP_API_LOCATIONS,
   params: { page: '1', limit: '3', type: 'takeout' },
   headers: { 'Content-Type': 'application/json' },
 };
 
 const optionsDelivery = {
   method: 'GET',
-  url: 'https://api.foodies.elaniin.dev/locations',
+  url: process.env.REACT_APP_API_LOCATIONS,
   params: { page: '1', limit: '3', type: 'delivery' },
   headers: { 'Content-Type': 'application/json' },
 };

@@ -10,14 +10,14 @@ import MenuFilterMobile from './MenuFilterMobile';
 
 const optionsDishes = {
   method: 'GET',
-  url: 'https://api.foodies.elaniin.dev/dishes',
+  url: process.env.REACT_APP_API_DISHES,
   params: { page: '1', limit: '12' },
   headers: { 'Content-Type': 'application/json' },
 };
 
 const optionsCategories = {
   method: 'GET',
-  url: 'https://api.foodies.elaniin.dev/categories',
+  url: process.env.REACT_APP_API_CATEGORIES,
   headers: { 'Content-Type': 'application/json' },
 };
 

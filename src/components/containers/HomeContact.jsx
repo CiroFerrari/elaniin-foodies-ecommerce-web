@@ -5,7 +5,7 @@ import HomeContactOk from './HomeContactOk';
 
 const options = {
   method: 'POST',
-  url: 'https://api.foodies.elaniin.dev/forms/contact/submissions',
+  url: process.env.REACT_APP_API_FORMS_CONTACT_SUBMISSIONS,
   headers: { 'Content-Type': 'application/json' },
   data: {
     name: 'John Doe',
