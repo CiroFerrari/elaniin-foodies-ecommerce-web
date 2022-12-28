@@ -56,8 +56,8 @@ label:has(textarea#message:focus-visible) {
 
 .menu-header {
     background-image: url('./images/menuHero/menuHeroBackground-mobile.png');
-    background-position-x: right;
-    background-position-y: -330px;
+    background-position-x: -35px;
+    background-position-y: -340px;
 }
 
 form div label input:focus-visible,
@@ -75,6 +75,13 @@ form div label textarea:focus-visible {
     }
 }
 
+@media (min-width: 410px) {
+    .menu-header {
+        background-position-x: right;
+        background-position-y: -330px;
+    }
+}
+
 @media(min-width: 534px) and (max-width: 767px) {
     .downloadApp-span {
         margin-top: -40px;
@@ -88,7 +95,7 @@ form div label textarea:focus-visible {
 
     .menu-header {
         background-image: url('./images/menuHero/menuHeroBackground.png');
-        background-position-x: 155%;
+        background-position-x: 135%;
         background-size: contain;
         background-position-y: 0px;
     }

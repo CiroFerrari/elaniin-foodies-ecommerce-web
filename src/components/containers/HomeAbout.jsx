@@ -30,7 +30,7 @@ export default function HomeAbout() {
         style={{
           backgroundImage: `url(${HeroAboutBackground})`,
         }}
-        className="bg-cover xl:flex-1 bg-no-repeat bg-center pl-[16px] lg:bg-cover xl:bg-contain md:pt-[60px] md:pb-[60px] lg:pb-[52px] md:pl-[53px] xl:pt-[46px] xl:pb-[70px] xl:pl-[56px] flex flex-col justify-center"
+        className="bg-cover xl:flex-1 bg-no-repeat bg-center pl-[16px] lg:bg-cover xl:bg-contain md:pt-[60px] md:pb-[60px] lg:pb-[52px] md:pl-[53px] xl:pt-[46px] xl:pb-[46px] xl:pl-[56px] flex flex-col justify-center"
       >
         {
           isVisible
