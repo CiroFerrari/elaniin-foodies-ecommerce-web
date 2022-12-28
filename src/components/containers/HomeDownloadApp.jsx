@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
 import DownloadAppImg from '../../images/homeDownloadApp/app-image.webp';
-import DownloadAppMDImg from '../../images/homeDownloadApp/app-image-md.png';
+import DownloadAppMDImg from '../../images/homeDownloadApp/app-image-md.webp';
 import AppStoreImg from '../../images/homeDownloadApp/app-store.png';
 import PlayStoreImg from '../../images/homeDownloadApp/play-store.png';
 import Vector2 from '../../images/homeDownloadApp/vector-2.png';
