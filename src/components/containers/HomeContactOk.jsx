@@ -5,7 +5,7 @@ import ResponseOk from '../../images/homeContact/response-ok.png';
 export default function HomeContactOk() {
   return (
     <section
-      className="flex flex-col items-center pt-[94px] pb-[273px] md:pb-[323px] xl:pb-[120px] bg-[#000000]"
+      className="flex flex-col items-center md:mt-[-50px] pt-[94px] pb-[273px] md:pb-[323px] xl:pb-[120px] bg-[#000000]"
     >
       <img
         src={ResponseOk}

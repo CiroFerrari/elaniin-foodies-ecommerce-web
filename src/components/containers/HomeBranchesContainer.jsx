@@ -106,7 +106,7 @@ export default function BranchesContainer() {
   }, [locationSelected]);
 
   return (
-    <section id="branchesContainer" className="mt-[27px] md:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
+    <section id="branchesContainer" className="mt-[27px] md:mt-[60px] lg:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
       <div ref={ref} className="w-full xl:w-[45vw] sm:mx-auto flex flex-col">
         {
           isVisible

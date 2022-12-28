@@ -37,15 +37,15 @@ export default function NavBarTailwindUI() {
   }, [location, openMobile]);
 
   const handlePageChange = (page) => {
-    if ((page !== 'home' && openMobile) || (page === 'home' && openMobile)) {
+    if (openMobile) {
       setOpenMobile(!openMobile);
     }
     setActualPage(page);
   };
   return (
-    <nav className="rounded-b-[30px] absolute w-[100%] z-20">
-      <div className={`${bgNav} relative flex items-center pt-[47px] md:pt-[30px] px-[16px] md:pl-[40px] lg:pl-[0px] lg:ml-[53px] lg:pt-[0px] lg:mt-[57px] xl:max-w-[1500px] xl:pl-[101px] xl:mx-auto`}>
-        <div className="absolute right-0 md:right-[40px] flex items-center lg:hidden">
+    <nav className={`rounded-b-[30px] absolute w-[100%] z-20 ${openMobile ? 'md:relative md:mb-[-100px]' : 'md:absolute'}`}>
+      <div className={`${bgNav} relative flex items-center pt-[47px] md:pt-[30px] px-[16px] md:pr-[0px] md:pl-[40px] lg:pl-[0px] lg:ml-[53px] lg:pt-[0px] lg:mt-[57px] xl:max-w-[1500px] xl:pl-[101px] xl:mx-auto`}>
+        <div className="absolute right-[16px] md:right-[40px] flex items-center lg:hidden">
           {/* Mobile menu button */}
           <button type="button" className="inline-flex items-center justify-center text-gray-400 focus:outline-none" onClick={() => setOpenMobile(!openMobile)}>
             <span className="sr-only">Open main menu</span>

@@ -28,7 +28,7 @@ export default function HomeHeader() {
           fillMode="forwards"
           iteration={1}
         >
-          <h1 className="text-[35px] leading-[35px] md:hidden xl:block md:mt-[25px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[21px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
+          <h1 className="text-[35px] leading-[35px] md:hidden xl:block md:mt-[25px] md:w-[100%] xl:mt-[100px] font-Druk-Text-Wide font-bold mb-[32px] md:text-[40px] md:leading-[40px] xl:text-[60px] xl:leading-[60px] ">
             Un nuevo sabor esta en
             <span className="block relative pl-[4px] md:hidden xl:block xl:pl-[13px] pr-[31px] w-[fit-content] text-black pb-[2px] xl:ml-[-13px]">
               la ciudad

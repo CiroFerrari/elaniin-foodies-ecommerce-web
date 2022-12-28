@@ -61,7 +61,7 @@ export default function HomeContact2() {
               top restaurants via e-mail.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-[40px] md:gap-[23px]">
-              <div className="flex flex-col xl:flex-row gap-[10px] md:gap-[50px]">
+              <div className="flex flex-col xl:flex-row gap-[10px] xl:gap-[50px]">
                 <div className="flex flex-col gap-[10px]">
                   <ContactInput
                     description="Nombre y Apellido"

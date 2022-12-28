@@ -62,7 +62,7 @@ export default function Testimonials() {
   };
   return (
     <section ref={ref} className="relative flex justify-center items-start px-[16px] md:px-[0px] mt-[55px] md:h-[633px] xl:justify-between md:mt-[9px] xl:mt-[50px] max-w-[1500px] mx-auto">
-      <img src={TestimonialsImgLeft} alt="Red Art" className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[27px]" />
+      <img src={TestimonialsImgLeft} alt="Red Art" className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[20px]" />
       {
         isVisible
         && (
