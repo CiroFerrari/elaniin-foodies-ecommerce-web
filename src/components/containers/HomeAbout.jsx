@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
 // import HeroAboutImg from '../../images/homeAbout/home-about.webp';
-import HeroAboutBackground from '../../images/homeAbout/md-background.png';
+// import HeroAboutBackground from '../../images/homeAbout/md-background.png';
 import CtaButton from '../base/CtaButton';
 import useFetchData from '../../hooks/useFetchData';
 
@@ -37,7 +37,7 @@ export default function HomeAbout() {
   return (
     <section ref={ref} className="mt-[52px] md:mt-[80px] flex flex-col xl:flex-row max-w-[1500px] mx-auto">
       {/* {content && <img src={`${baseURL + content.image.data.attributes.url}`} alt="alt" />} */}
-      <div style={{ backgroundImage: `url(${baseURL + content.image.data.attributes.url})`, backgroundSize: 'cover', backgroundPositionX: '38%' }} className="h-[565px] mb-[60px] md:mb-[0px] px-[16px] pb-[30px] md:bg-center xl:w-[55vw] xl:max-w-[816px] flex justify-end items-end md:pr-[53px] lg:pr-[40px] md:pb-[40px] lg:pb-[61px]">
+      <div style={content && { backgroundImage: `url(${baseURL + content.image.data.attributes.url})`, backgroundSize: 'cover', backgroundPositionX: '38%' }} className="h-[565px] mb-[60px] md:mb-[0px] px-[16px] pb-[30px] md:bg-center xl:w-[55vw] xl:max-w-[816px] flex justify-end items-end md:pr-[53px] lg:pr-[40px] md:pb-[40px] lg:pb-[61px]">
         <h2 className="text-white max-w-[343px] md:max-w-[579px] font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[40px] md:leading-[40px] xl:text-[50px] xl:leading-[50px] text-right">
           {content && content.title}
           <span> </span>
@@ -45,9 +45,7 @@ export default function HomeAbout() {
         </h2>
       </div>
       <article
-        style={{
-          backgroundImage: `url(${HeroAboutBackground})`,
-        }}
+        style={content && { backgroundImage: `url(${baseURL + content.contentBackground.data.attributes.url}` }}
         className="bg-cover xl:flex-1 bg-no-repeat bg-center pl-[16px] lg:bg-cover xl:bg-contain md:pt-[60px] md:pb-[60px] lg:pb-[52px] md:pl-[53px] xl:pt-[46px] xl:pb-[46px] xl:pl-[56px] flex flex-col justify-center"
       >
         {
