@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useFetchData from '../../hooks/useFetchData';
 
-const navigation = [
-  { name: 'Acerca de', to: '/acercade', current: false },
-  { name: 'Restaurantes', to: '/restaurantes', current: false },
-  { name: 'Menú', to: '/menu', current: false },
-  { name: 'Contáctanos', to: '/contactanos', current: false },
-];
+const baseURL = process.env.REACT_APP_API_STRAPI;
+const fetchURL = '/api/navbars/1';
+
+// const navigation = [
+//   { name: 'Acerca de', to: '/acercade', current: false },
+//   { name: 'Restaurantes', to: '/restaurantes', current: false },
+//   { name: 'Menú', to: '/menu', current: false },
+//   { name: 'Contáctanos', to: '/contactanos', current: false },
+// ];
 
 const homeTextColor = 'text-black';
 
@@ -17,6 +21,16 @@ function classNames(...classes) {
 }
 
 export default function NavBarTailwindUI() {
+  // CMS Upgrade
+  const [content, setContent] = useState(null);
+  const { result } = useFetchData(`${baseURL + fetchURL}`);
+
+  useEffect(() => {
+    if (result) {
+      setContent(result.data.attributes);
+    }
+  }, [result]);
+
   const [colorText, setColorText] = useState('');
   const [bgNav, setBgNav] = useState();
   const [openMobile, setOpenMobile] = useState(false);
@@ -63,11 +77,11 @@ export default function NavBarTailwindUI() {
             className={`font-bold text-[27px] leading-[27px] mr-[47px] lg:mr-[87px] font-Druk-Text-Wide ${colorText} ${(colorText === 'text-white') ? 'lg:hover:text-[#ffffff90]' : 'lg:hover:text-[#00000075]'}`}
             onClick={() => handlePageChange('home')}
           >
-            Foodies
+            { content ? `${content.businessName}` : 'Cargando' }
           </Link>
           <div className="lg:flex lg:items-center hidden sm:ml-6 lg:ml-[0px] ">
             <div className="flex items-center gap-[39px]">
-              {navigation.map((item) => (
+              {content && content.navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.to}
@@ -91,7 +105,7 @@ export default function NavBarTailwindUI() {
         && (
           <div className="lg:hidden bg-[#f8f8f8] z-20 lg:mb-[75px] rounded-b-[30px]">
             <div className="space-y-1 px-2 pt-2 pb-3 rounded-[30px] shadow-lg shadow-grey-50 md:pl-[53px]">
-              {navigation.map((item) => (
+              {content && content.navigation.map((item) => (
                 <button
                   type="button"
                   key={item.name}

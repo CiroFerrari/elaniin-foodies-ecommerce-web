@@ -1,13 +1,29 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
-import HeroAboutImg from '../../images/homeAbout/home-about.webp';
+// import HeroAboutImg from '../../images/homeAbout/home-about.webp';
 import HeroAboutBackground from '../../images/homeAbout/md-background.png';
 import CtaButton from '../base/CtaButton';
+import useFetchData from '../../hooks/useFetchData';
 
 const AnimationsForChaining = ['slideInFromTop'];
 
+const baseURL = process.env.REACT_APP_API_STRAPI;
+const fetchURL = '/api/home-abouts/1?populate=*';
+
 export default function HomeAbout() {
+  // CMS Upgrade
+  const [content, setContent] = useState(null);
+  const { result } = useFetchData(`${baseURL + fetchURL}`);
+  console.log(result?.data.attributes);
+
+  useEffect(() => {
+    if (result) {
+      setContent(result.data.attributes);
+      console.log(content);
+    }
+  }, [result]);
+
   const ref = useRef();
   const isVisible = useOnScreen(ref);
 
@@ -20,10 +36,12 @@ export default function HomeAbout() {
   };
   return (
     <section ref={ref} className="mt-[52px] md:mt-[80px] flex flex-col xl:flex-row max-w-[1500px] mx-auto">
-      <div style={{ backgroundImage: `url(${HeroAboutImg})`, backgroundSize: 'cover', backgroundPositionX: '38%' }} className="h-[565px] mb-[60px] md:mb-[0px] px-[16px] pb-[30px] md:bg-center xl:w-[55vw] xl:max-w-[816px] flex justify-end items-end md:pr-[53px] lg:pr-[40px] md:pb-[40px] lg:pb-[61px]">
+      {/* {content && <img src={`${baseURL + content.image.data.attributes.url}`} alt="alt" />} */}
+      <div style={{ backgroundImage: `url(${baseURL + content.image.data.attributes.url})`, backgroundSize: 'cover', backgroundPositionX: '38%' }} className="h-[565px] mb-[60px] md:mb-[0px] px-[16px] pb-[30px] md:bg-center xl:w-[55vw] xl:max-w-[816px] flex justify-end items-end md:pr-[53px] lg:pr-[40px] md:pb-[40px] lg:pb-[61px]">
         <h2 className="text-white max-w-[343px] md:max-w-[579px] font-Druk-Text-Wide font-bold text-[35px] leading-[35px] md:text-[40px] md:leading-[40px] xl:text-[50px] xl:leading-[50px] text-right">
-          LA COMIDA ES
-          <span className="text-[#FFD600]"> NUESTRO ARTE</span>
+          {content && content.title}
+          <span> </span>
+          <span className="text-[#FFD600]">{content && content.titleSpan}</span>
         </h2>
       </div>
       <article
@@ -43,14 +61,11 @@ export default function HomeAbout() {
               fillMode="forwards"
               iteration={1}
             >
-              <h3 className="mb-[27px] font-Syne font-bold text-[22px] leading-[26.4px]">¿Quién es Foodies?</h3>
+              <h3 className="mb-[27px] font-Syne font-bold text-[22px] leading-[26.4px]">{content && content.contentTitle}</h3>
               <p className="max-w-[570px] mb-[27px] font-Open-Sans font-normal text-[18px] leading-[24.5px] md:mb-[54px] text-[#00000040]">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Temporibus possimus modi, quae id, laborum aliquam,
-                veniam omnis voluptatem dicta quisquam fugiat.
-                Obcaecati provident, vero excepturi dolores iste explicabo quibusdam nisi.
+                {content && content.contentDescription}
               </p>
-              <CtaButton name="Contáctanos" navigation="homeContact" />
+              <CtaButton name={content ? content.buttonText : ''} navigation="homeContact" />
             </MovingComponent>
           )
         }
