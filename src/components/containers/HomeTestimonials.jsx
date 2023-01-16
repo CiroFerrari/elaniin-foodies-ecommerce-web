@@ -1,38 +1,28 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MovingComponent from 'react-moving-text';
 import useOnScreen from '../../hooks/useOnScreen';
-import TestimonialsImgLeft from '../../images/homeTestimonials/testimonials-left.png';
-import TestimonialsImgRight from '../../images/homeTestimonials/testimonials-right.png';
-import TestimonialsImgKetchup from '../../images/homeTestimonials/testimonials-ketchup.webp';
 import ArrowPrev from '../../images/homeTestimonials/arrow-prev.svg';
 import ArrowNext from '../../images/homeTestimonials/arrow-next.svg';
+import useFetchData from '../../hooks/useFetchData';
+
+const baseURL = process.env.REACT_APP_API_STRAPI;
+const fetchURL = '/api/home-testimonials/1?populate=*';
 
 const AnimationsForChaining = ['slideInFromTop'];
 
-const testimonials = [
-  {
-    title: 'El mejor lugar para degustar en familia y amigos!',
-    description: 'Es el mejor lugar al que he venido con mi familia, la comida es rica, sirven rápido y te atienden de la mejor manera.',
-  },
-  {
-    title: 'Testimonio 2',
-    description: 'Descripción 2',
-  },
-  {
-    title: 'Testimonio 3',
-    description: 'Descripción 3',
-  },
-  {
-    title: 'Testimonio 4',
-    description: 'Descripción 4',
-  },
-  {
-    title: 'Testimonio 5',
-    description: 'Descripción 5',
-  },
-];
-
 export default function Testimonials() {
+  // CMS Upgrade
+  const [content, setContent] = useState(null);
+  const { result } = useFetchData(`${baseURL + fetchURL}`);
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    if (result) {
+      setContent(result.data.attributes);
+      setTestimonials(result.data.attributes.testimonialsArray);
+    }
+  }, [result]);
+
   const ref = useRef();
   const isVisible = useOnScreen(ref);
 
@@ -62,9 +52,14 @@ export default function Testimonials() {
   };
   return (
     <section ref={ref} className="relative flex justify-center items-start px-[16px] md:px-[0px] mt-[55px] md:h-[633px] xl:justify-between md:mt-[9px] xl:mt-[50px] max-w-[1500px] mx-auto">
-      <img src={TestimonialsImgLeft} alt="Red Art" className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[20px]" />
       {
-        isVisible
+        content
+        && (
+          <img src={baseURL + content.imageLeftFile.data.attributes.url} alt={content.imageLeftAlt} className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[20px]" />
+        )
+      }
+      {
+        (isVisible && content)
         && (
           <MovingComponent
             onAnimationEnd={handleChainAnimation}
@@ -99,8 +94,15 @@ export default function Testimonials() {
           </MovingComponent>
         )
       }
-      <img src={TestimonialsImgKetchup} alt="Ketchup" className="ketchup-img hidden xl:block absolute right-0 w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
-      <img src={TestimonialsImgRight} alt="Ketchup Stain" className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
+      {
+        content
+        && (
+          <>
+            <img src={baseURL + content.imageDecorationFile.data.attributes.url} alt={content.imageDecorationAlt} className="ketchup-img hidden xl:block absolute right-0 w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
+            <img src={baseURL + content.imageRightFile.data.attributes.url} alt={content.imageRightAlt} className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
+          </>
+        )
+      }
     </section>
   );
 }
