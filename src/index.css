@@ -50,12 +50,7 @@ label:has(textarea#message:focus-visible) {
     color: #FFC700;
 }
 
-.home-header {
-    background-image: url('./images/heroImages/hero-background-mobile.png');
-}
-
 .menu-header {
-    background-image: url('./images/menuHero/menuHeroBackground-mobile.png');
     background-position-x: -35px;
     background-position-y: -340px;
 }
@@ -89,12 +84,7 @@ form div label textarea:focus-visible {
 }
 
 @media(min-width: 768px) {
-    .home-header {
-        background-image: url('./images/heroImages/hero-background-md.png');
-    }
-
     .menu-header {
-        background-image: url('./images/menuHero/menuHeroBackground.png');
         background-position-x: 135%;
         background-size: contain;
         background-position-y: 0px;
@@ -102,10 +92,6 @@ form div label textarea:focus-visible {
 }
 
 @media(min-width: 1280px) {
-    .home-header {
-        background-image: url('./images/heroImages/hero-background.png');
-    }
-
     .menu-header {
         background-position-x: 100%;
     }

@@ -15,12 +15,10 @@ export default function HomeAbout() {
   // CMS Upgrade
   const [content, setContent] = useState(null);
   const { result } = useFetchData(`${baseURL + fetchURL}`);
-  console.log(result?.data.attributes);
 
   useEffect(() => {
     if (result) {
       setContent(result.data.attributes);
-      console.log(content);
     }
   }, [result]);
 
