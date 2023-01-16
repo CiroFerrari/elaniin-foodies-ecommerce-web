@@ -42,7 +42,6 @@ export default function HomeHeader() {
         setTitleSpan(content.spanMobile);
       }
     }
-    console.log(content);
   }, [content, windowSize]);
 
   const [animationIndex, setAnimationIndex] = useState(0);

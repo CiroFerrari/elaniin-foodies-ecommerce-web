@@ -2,13 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import MovingComponent from 'react-moving-text';
 import axios from 'axios';
 import useOnScreen from '../../hooks/useOnScreen';
-import ElSalvadorMap from '../../images/homeBranches/branches-map.webp';
 import BranchesButton from '../base/BranchesButton';
-import SearchInput from '../../images/homeBranches/branches-search.svg';
-import TakeAwayImg from '../../images/homeBranches/branches-takeaway.svg';
-import DeliveryImg from '../../images/homeBranches/branches-delivery.svg';
-import EmptySearch from '../../images/emptyStates/error-search.png';
 import BranchItem from './BranchItem';
+import useFetchData from '../../hooks/useFetchData';
+
+const baseURL = process.env.REACT_APP_API_STRAPI;
+const fetchURL = '/api/home-branch-containers/1?populate=*';
 
 const AnimationsForChaining = ['slideInFromTop'];
 
@@ -27,6 +26,16 @@ const optionsDelivery = {
 };
 
 export default function BranchesContainer() {
+  // CMS Upgrade
+  const [content, setContent] = useState(null);
+  const { result } = useFetchData(`${baseURL + fetchURL}`);
+
+  useEffect(() => {
+    if (result) {
+      setContent(result.data.attributes);
+    }
+  }, [result]);
+
   const ref = useRef();
   const isVisible = useOnScreen(ref);
 
@@ -109,7 +118,7 @@ export default function BranchesContainer() {
     <section id="branchesContainer" className="mt-[27px] md:mt-[60px] lg:mt-[80px] xl:mb-[24px] flex md:flex-col xl:flex-row max-w-[1500px] mx-auto">
       <div ref={ref} className="w-full xl:w-[45vw] sm:mx-auto flex flex-col">
         {
-          isVisible
+          (isVisible && content)
           && (
             <MovingComponent
               onAnimationEnd={handleChainAnimation}
@@ -120,14 +129,14 @@ export default function BranchesContainer() {
               iteration={1}
               className="flex flex-col"
             >
-              <h3 className="max-w-[295px] mb-[30px] md:max-w-none pl-[16px] text-[35px] leading-[35px] md:pl-[0px] font-Druk-Text-Wide font-bold md:text-[40px] md:leading-[40px] md:text-left md:ml-[53px] xl:text-center xl:ml-[0px] md:mb-[32px]">Estamos para ti</h3>
+              <h3 className="max-w-[295px] mb-[30px] md:max-w-none pl-[16px] text-[35px] leading-[35px] md:pl-[0px] font-Druk-Text-Wide font-bold md:text-[40px] md:leading-[40px] md:text-left md:ml-[53px] xl:text-center xl:ml-[0px] md:mb-[32px]">{content.title}</h3>
               <div className="flex">
-                <BranchesButton name="Para llevar" image={TakeAwayImg} active={takeawayActive} onClick={takeaway} />
-                <BranchesButton name="Domicilio" image={DeliveryImg} active={deliveryActive} onClick={delivery} />
+                <BranchesButton name="Para llevar" image={baseURL + content.takeawayImage.data.attributes.url} active={takeawayActive} onClick={takeaway} />
+                <BranchesButton name="Domicilio" image={baseURL + content.deliveryImage.data.attributes.url} active={deliveryActive} onClick={delivery} />
               </div>
               <div className="border-[1px] border-[#C4C4C4] border-solid pl:[19px] md:pb-[16px] p-[12px] flex gap-[15px] md:gap-[30px] md:pl-[105px] lg:pl-[7vw] mb-[5px] md:mb-[15px]">
-                <img src={SearchInput} alt="Search" className="h-[16px] md:h-[25px]" />
-                <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[16px] md:leading-[22px] lg:text-[18px] lg:leading-[24.5px]" placeholder="Buscar nombre o dirección" value={search} onChange={(event) => handleSearch(event.target.value)} />
+                <img src={baseURL + content.inputSearchImage.data.attributes.url} alt={content.inputSearchImageAlt} className="h-[16px] md:h-[25px]" />
+                <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[16px] md:leading-[22px] lg:text-[18px] lg:leading-[24.5px]" placeholder={content.inputSearchPlaceHolder} value={search} onChange={(event) => handleSearch(event.target.value)} />
               </div>
               {
                 locations.length > 0
@@ -143,8 +152,8 @@ export default function BranchesContainer() {
                   ))
                   : (
                     <div className="grow flex flex-col justify-center items-center">
-                      <img src={EmptySearch} alt="Empty search" className="max-w-[215px]" />
-                      <p className="font-Syne font-bold text-[20px] leading-[24px] max-w-[303px] text-center mt-[23px]">¡No hemos encontrado lo que buscas!</p>
+                      <img src={baseURL + content.emptySearchImage.data.attributes.url} alt={content.emptySearchImageAlt} className="max-w-[215px]" />
+                      <p className="font-Syne font-bold text-[20px] leading-[24px] max-w-[303px] text-center mt-[23px]">{content.emptySearchText}</p>
                     </div>
                   )
               }
@@ -152,7 +161,11 @@ export default function BranchesContainer() {
           )
         }
       </div>
-      <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px] max-h-[457px] object-cover lg:max-h-[none]" src={ElSalvadorMap} alt="El Salvador map" />
+      {
+        content && (
+          <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px] max-h-[457px] object-cover lg:max-h-[none]" src={baseURL + content.mapImage.data.attributes.url} alt={content.mapImageAlt} />
+        )
+      }
     </section>
   );
 }
