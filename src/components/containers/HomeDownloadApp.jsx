@@ -17,7 +17,6 @@ export default function DownloadApp() {
     if (result) {
       setContent(result.data.attributes);
     }
-    console.log(content);
   }, [result]);
 
   const ref = useRef();
