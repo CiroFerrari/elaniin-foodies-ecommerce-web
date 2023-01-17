@@ -1,10 +1,14 @@
-# Link to the project in Vercel
+# This is the Version 2 of the Project "Foodies"
 
-https://elaniin-foodies-ecommerce-web-vercel.vercel.app/
+This version is not deployed on Vercel
 
-# Getting Started with Create React App
+# Getting Started 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Strapi](https://strapi.io/)
+
+## Before run this React App
+
+Please clone and run [this repository](https://github.com/CiroFerrari/foodies-strapi-api) for the dynamic content with Strapi. It is the API for the React App content.
 
 ## Available Scripts
 
