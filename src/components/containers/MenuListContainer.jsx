@@ -143,7 +143,7 @@ export default function MenuListContainer() {
               className="md:mb-[30px] xl:mb-[0px] xl:md-[0px] flex items-center gap-[9px] text-white font-Open-Sans font-normal text-[12px] leading-[16px] w-[295px] md:w-[467px] xl:w-[31vw] border-[1px] border-solid border-[#C4C4C4] px-[18px] rounded-[8px] bg-[#F8F8F8] mr-[20px] md:mr-[0px] xl:mr-[43px] max-w-[467px]"
             >
               <img
-                src={baseURL + content.inputSearchImage.data.attributes.url}
+                src={content.inputSearchImage.data.attributes.url}
                 alt={content.inputSearchImageAlt}
               />
               <input
@@ -204,7 +204,7 @@ export default function MenuListContainer() {
                 ? result.map((item) => <MenuItemCard key={item.id} item={item} />)
                 : (
                   <img
-                    src={baseURL + content.emptySearchImage.data.attributes.url}
+                    src={content.emptySearchImage.data.attributes.url}
                     alt={content.emptySearchAlt}
                   />
                 )
@@ -232,8 +232,8 @@ export default function MenuListContainer() {
           <div className="flex flex-col gap-[18px] md:gap-[0px] md:flex-row items-center justify-between px-[8vw] mb-[20px] md:mb-[50px] mt-[70px]">
             <p className="font-bold text-[24px] leading-[24px] md:mr-[86px] font-Druk-Text-Wide md:self-end text-[#00000080]">{content.appName}</p>
             <div className="flex gap-[10px]">
-              <img src={baseURL + content.appStoreImage.data.attributes.url} alt={content.appStoreAlt} className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[33px] lg:max-w-[184px] lg:max-h-[54px]" />
-              <img src={baseURL + content.playStoreImage.data.attributes.url} alt={content.playStoreAlt} className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[33px] lg:max-w-[184px] lg:max-h-[54px]" />
+              <img src={content.appStoreImage.data.attributes.url} alt={content.appStoreAlt} className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[33px] lg:max-w-[184px] lg:max-h-[54px]" />
+              <img src={content.playStoreImage.data.attributes.url} alt={content.playStoreAlt} className="hover:opacity-50 max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[33px] lg:max-w-[184px] lg:max-h-[54px]" />
             </div>
           </div>
         )

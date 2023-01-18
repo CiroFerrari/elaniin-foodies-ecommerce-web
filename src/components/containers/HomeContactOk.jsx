@@ -24,7 +24,7 @@ export default function HomeContactOk() {
         content && (
           <>
             <img
-              src={baseURL + content.imageOK.data.attributes.url}
+              src={content.imageOK.data.attributes.url}
               alt="Mail"
               className="w-[150px] mb-[61px] lg:w-[158px] md:mb-[50px]"
             />

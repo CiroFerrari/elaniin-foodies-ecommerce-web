@@ -24,7 +24,7 @@ export default function NoPage() {
         content
         && (
           <>
-            <img src={baseURL + content.noPageImage.data.attributes.url} alt={content.noPageImageAlt} className="max-w-[216px]" />
+            <img src={content.noPageImage.data.attributes.url} alt={content.noPageImageAlt} className="max-w-[216px]" />
             <p className="font-Syne font-bold text-[20px] leading-[24px] text-[#121212] max-w-[303px] text-center mt-[23px]">{content.text}</p>
           </>
         )

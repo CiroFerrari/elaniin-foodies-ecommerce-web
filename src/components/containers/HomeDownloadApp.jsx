@@ -32,9 +32,9 @@ export default function DownloadApp() {
   return (
     <>
       <section ref={ref} className="overflow-hidden flex flex-col items-center justify-center xl:flex-row xl:justify-start xl:items-start mt-[-227px] md:mt-[-290px] xl:mt-[-112px] max-w-[1500px] mx-auto">
-        {content && <img src={baseURL + content.appImageMobile.data.attributes.url} alt={content.appImageAlt} className="md:hidden w-[608px] max-w-[508px] ml-[0px] md:w-[972px] md:max-w-[768px] md:ml-[0px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
-        {content && <img src={baseURL + content.appImageTablet.data.attributes.url} alt={content.appImageAlt} className="hidden md:block xl:hidden w-[608px] max-w-[508px] ml-[0px] md:w-[972px] md:max-w-[768px] md:ml-[0px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
-        {content && <img src={baseURL + content.appImageDesktop.data.attributes.url} alt={content.appImageAlt} className="hidden xl:block 2xl:ml-[-100px] w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:max-w-[700px] md:ml-[160px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
+        {content && <img src={content.appImageMobile.data.attributes.url} alt={content.appImageAlt} className="md:hidden w-[608px] max-w-[508px] ml-[0px] md:w-[972px] md:max-w-[768px] md:ml-[0px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
+        {content && <img src={content.appImageTablet.data.attributes.url} alt={content.appImageAlt} className="hidden md:block xl:hidden w-[608px] max-w-[508px] ml-[0px] md:w-[972px] md:max-w-[768px] md:ml-[0px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
+        {content && <img src={content.appImageDesktop.data.attributes.url} alt={content.appImageAlt} className="hidden xl:block 2xl:ml-[-100px] w-[608px] max-w-[508px] ml-[135px] md:w-[972px] md:max-w-[700px] md:ml-[160px] xl:ml-[0px] xl:w-[66vw] xl:max-w-[1298px] z-0" />}
         {
           (isVisible && content)
           && (
@@ -79,12 +79,12 @@ export default function DownloadApp() {
                   </p>
                 </div>
                 <img
-                  src={baseURL + content.backgroundVectorOne.data.attributes.url}
+                  src={content.backgroundVectorOne.data.attributes.url}
                   alt={content.backgroundVectorOneAlt}
                   className="hidden md:block absolute z-[-10] left-[75px] bottom-[150px] w-[242px] h-[221px]"
                 />
                 <img
-                  src={baseURL + content.backgroundVectorTwo.data.attributes.url}
+                  src={content.backgroundVectorTwo.data.attributes.url}
                   alt={content.backgroundVectorTwoAlt}
                   className="hidden md:block absolute z-[-10] right-[75px] bottom-[150px] w-[242px] h-[221px]"
                 />
@@ -99,8 +99,8 @@ export default function DownloadApp() {
           <section className="mt-[136px] gap-[18px] md:gap-[0px] md:mt-[70px] flex flex-col md:flex-row items-center justify-between xl:mt-[-96px] md:pl-[38px] md:pr-[25px] xl:pl-[10vw] xl:pr-[8vw] 2xl:mt-[-112px] max-w-[1500px] mx-auto">
             <p className="font-bold text-[24px] leading-[24px] md:mr-[86px] font-Druk-Text-Wide md:self-end text-[#00000080]">{content.appName}</p>
             <div className="flex gap-[6px] md:gap-[10px]">
-              <img src={baseURL + content.appStoreImage.data.attributes.url} alt={content.appStoreImageAlt} className="max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[39px] xl:max-w-[184px] xl:max-h-[54px] hover:opacity-50" />
-              <img src={baseURL + content.playStoreImage.data.attributes.url} alt={content.playStoreImageAlt} className="max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[39px] xl:max-w-[184px] xl:max-h-[54px] hover:opacity-50" />
+              <img src={content.appStoreImage.data.attributes.url} alt={content.appStoreImageAlt} className="max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[39px] xl:max-w-[184px] xl:max-h-[54px] hover:opacity-50" />
+              <img src={content.playStoreImage.data.attributes.url} alt={content.playStoreImageAlt} className="max-w-[116px] max-h-[34px] md:max-w-[133px] md:max-h-[39px] xl:max-w-[184px] xl:max-h-[54px] hover:opacity-50" />
             </div>
           </section>
         )

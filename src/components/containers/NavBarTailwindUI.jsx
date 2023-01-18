@@ -5,13 +5,6 @@ import useFetchData from '../../hooks/useFetchData';
 const baseURL = process.env.REACT_APP_API_STRAPI;
 const fetchURL = '/api/navbars/1';
 
-// const navigation = [
-//   { name: 'Acerca de', to: '/acercade', current: false },
-//   { name: 'Restaurantes', to: '/restaurantes', current: false },
-//   { name: 'Menú', to: '/menu', current: false },
-//   { name: 'Contáctanos', to: '/contactanos', current: false },
-// ];
-
 const homeTextColor = 'text-black';
 
 const menuTextColor = 'text-white';

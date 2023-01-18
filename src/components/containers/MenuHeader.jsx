@@ -42,7 +42,7 @@ export default function MenuHeader() {
   return (
     content
       ? (
-        <section className="menu-header mt-[0px] flex flex-col-reverse md:flex-row md:pl-[53px] md:pb-[90px] xl:pb-[0px] justify-between bg-black md:pt-[72px] xl:pt-[132px] lg:pl-[101px] lg:pr-[94px] max-w-[1500px] mx-auto xl:mt-[-60px] bg-no-repeat" style={content && { backgroundImage: `url(${baseURL + heroBackground})` }}>
+        <section className="menu-header mt-[0px] flex flex-col-reverse md:flex-row md:pl-[53px] md:pb-[90px] xl:pb-[0px] justify-between bg-black md:pt-[72px] xl:pt-[132px] lg:pl-[101px] lg:pr-[94px] max-w-[1500px] mx-auto xl:mt-[-60px] bg-no-repeat" style={content && { backgroundImage: `url(${heroBackground})` }}>
           <header className="max-w-[343px] md:max-w-[360px] lg:max-w-[579px] self-center mb-[106px] md:mb-[0px]">
             <MovingComponent
               onAnimationEnd={handleChainAnimation}
@@ -66,7 +66,7 @@ export default function MenuHeader() {
               }
             </MovingComponent>
           </header>
-          <img src={baseURL + content.mainImage.data.attributes.url} alt="Hamburguer" className="w-[87vw] mt-[121px] ml-[-11px] self-center max-w-[328px] md:w-[42vw] md:max-w-[627px] md:mt-[40px] md:ml-[0px]" />
+          <img src={content.mainImage.data.attributes.url} alt="Hamburguer" className="w-[87vw] mt-[121px] ml-[-11px] self-center max-w-[328px] md:w-[42vw] md:max-w-[627px] md:mt-[40px] md:ml-[0px]" />
         </section>
       )
       : (

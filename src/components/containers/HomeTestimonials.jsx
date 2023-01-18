@@ -55,7 +55,7 @@ export default function Testimonials() {
       {
         content
         && (
-          <img src={baseURL + content.imageLeftFile.data.attributes.url} alt={content.imageLeftAlt} className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[20px]" />
+          <img src={content.imageLeftFile.data.attributes.url} alt={content.imageLeftAlt} className="hidden md:block absolute left-0 self-start xl:static md:w-[140px] md:h-[436px] xl:w-[13vw] xl:max-w-[195px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[20px]" />
         )
       }
       {
@@ -98,8 +98,8 @@ export default function Testimonials() {
         content
         && (
           <>
-            <img src={baseURL + content.imageDecorationFile.data.attributes.url} alt={content.imageDecorationAlt} className="ketchup-img hidden xl:block absolute right-0 w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
-            <img src={baseURL + content.imageRightFile.data.attributes.url} alt={content.imageRightAlt} className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
+            <img src={content.imageDecorationFile.data.attributes.url} alt={content.imageDecorationAlt} className="ketchup-img hidden xl:block absolute right-0 w-[30vw] max-w-[457px] h-[50vw] max-h-[762px] xl:mt-[-20px] z-10" />
+            <img src={content.imageRightFile.data.attributes.url} alt={content.imageRightAlt} className="hidden md:block absolute right-0 self-end md:w-[165px] md:h-[474px] xl:static xl:w-[15vw] xl:max-w-[223px] xl:h-[36vw] xl:max-h-[546px] xl:mt-[121px]" />
           </>
         )
       }

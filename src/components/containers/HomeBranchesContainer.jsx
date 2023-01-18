@@ -95,7 +95,9 @@ export default function BranchesContainer() {
       optionsDelivery.params.q = '';
       axios.request(optionsTakeout).then((response) => {
         setLocations(response.data.data);
-        setLocationSelected(response.data.data[0].id);
+        if (response.data.data.length > 0) {
+          setLocationSelected(response.data.data[0].id);
+        }
       }).catch((error) => {
         console.error(error);
       });
@@ -104,7 +106,9 @@ export default function BranchesContainer() {
       optionsTakeout.params.q = '';
       axios.request(optionsDelivery).then((response) => {
         setLocations(response.data.data);
-        setLocationSelected(response.data.data[0].id);
+        if (response.data.data?.length > 0) {
+          setLocationSelected(response.data.data[0].id);
+        }
       }).catch((error) => {
         console.error(error);
       });
@@ -131,11 +135,11 @@ export default function BranchesContainer() {
             >
               <h3 className="max-w-[295px] mb-[30px] md:max-w-none pl-[16px] text-[35px] leading-[35px] md:pl-[0px] font-Druk-Text-Wide font-bold md:text-[40px] md:leading-[40px] md:text-left md:ml-[53px] xl:text-center xl:ml-[0px] md:mb-[32px]">{content.title}</h3>
               <div className="flex">
-                <BranchesButton name="Para llevar" image={baseURL + content.takeawayImage.data.attributes.url} active={takeawayActive} onClick={takeaway} />
-                <BranchesButton name="Domicilio" image={baseURL + content.deliveryImage.data.attributes.url} active={deliveryActive} onClick={delivery} />
+                <BranchesButton name="Para llevar" image={content.takeawayImage.data.attributes.url} active={takeawayActive} onClick={takeaway} />
+                <BranchesButton name="Domicilio" image={content.deliveryImage.data.attributes.url} active={deliveryActive} onClick={delivery} />
               </div>
               <div className="border-[1px] border-[#C4C4C4] border-solid pl:[19px] md:pb-[16px] p-[12px] flex gap-[15px] md:gap-[30px] md:pl-[105px] lg:pl-[7vw] mb-[5px] md:mb-[15px]">
-                <img src={baseURL + content.inputSearchImage.data.attributes.url} alt={content.inputSearchImageAlt} className="h-[16px] md:h-[25px]" />
+                <img src={content.inputSearchImage.data.attributes.url} alt={content.inputSearchImageAlt} className="h-[16px] md:h-[25px]" />
                 <input type="text" className="bg-[#f8f8f8] flex-1 px-[10px] font-Open-Sans font-normal text-[16px] leading-[22px] md:text-[16px] md:leading-[22px] lg:text-[18px] lg:leading-[24.5px]" placeholder={content.inputSearchPlaceHolder} value={search} onChange={(event) => handleSearch(event.target.value)} />
               </div>
               {
@@ -152,7 +156,7 @@ export default function BranchesContainer() {
                   ))
                   : (
                     <div className="grow flex flex-col justify-center items-center">
-                      <img src={baseURL + content.emptySearchImage.data.attributes.url} alt={content.emptySearchImageAlt} className="max-w-[215px]" />
+                      <img src={content.emptySearchImage.data.attributes.url} alt={content.emptySearchImageAlt} className="max-w-[215px]" />
                       <p className="font-Syne font-bold text-[20px] leading-[24px] max-w-[303px] text-center mt-[23px]">{content.emptySearchText}</p>
                     </div>
                   )
@@ -163,7 +167,7 @@ export default function BranchesContainer() {
       </div>
       {
         content && (
-          <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px] max-h-[457px] object-cover lg:max-h-[none]" src={baseURL + content.mapImage.data.attributes.url} alt={content.mapImageAlt} />
+          <img className="hidden md:block xl:w-[55vw] xl:max-w-[824px] md:mt-[30px] xl:mt-[0px] max-h-[457px] object-cover lg:max-h-[none]" src={content.mapImage.data.attributes.url} alt={content.mapImageAlt} />
         )
       }
     </section>
