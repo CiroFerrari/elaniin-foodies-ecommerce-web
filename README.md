@@ -1,6 +1,11 @@
 # This is the Version 2 of the Project "Foodies"
 
-This version is not deployed on Vercel
+This version is not deployed on Vercel.
+
+v2.1.0 with Strapi and Cloudinary for media files
+v2.0.0 with Strapi (media files in a local folder)
+
+To move between versions: "git checkout v2.1.0" or "git checkout v2.0.0"
 
 # Getting Started 
 

@@ -59,7 +59,12 @@ export default function HomeAbout() {
               <p className="max-w-[570px] mb-[27px] font-Open-Sans font-normal text-[18px] leading-[24.5px] md:mb-[54px] text-[#00000040]">
                 {content && content.contentDescription}
               </p>
-              <CtaButton name={content ? content.buttonText : ''} navigation="homeContact" />
+              {
+                content
+                && (
+                  <CtaButton name={content ? content.buttonText : ''} navigation="homeContact" arrowRight={content.arrowRight.data.attributes.url} />
+                )
+              }
             </MovingComponent>
           )
         }

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import arrowRight from '../../images/heroImages/arrow-right.svg';
 
 export default function CtaButton(props) {
-  const { name, navigation } = props;
+  const { name, navigation, arrowRight } = props;
   if (!name || !navigation) {
     return null;
   }

@@ -110,7 +110,7 @@ export default function HomeHeader() {
           {
             content
             && (
-              <CtaButton name={content.buttonText} navigation="branchesContainer" />
+              <CtaButton name={content.buttonText} navigation="branchesContainer" arrowRight={content.arrowRight.data.attributes.url} />
             )
           }
         </MovingComponent>
